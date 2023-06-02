@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#caja1{
+    width: 50%!important;
+}
+@media only screen and (max-width:1000px){
+    #app{
+        display: flex!important;
+        flex-direction: column!important;
+        align-items: center!important;
+    }
+}
