@@ -26,7 +26,7 @@ const app = createApp({
 
     
     loadData(){
-      axios.get("/clients")
+      axios.get("http://localhost:8080/rest/clients/")
       .then(response => {
       this.clients=response
       this.clients=this.clients.data._embedded.clients
@@ -38,7 +38,7 @@ const app = createApp({
       });
     },
     postClient(){
-      axios.post("/clients",this.clientData)
+      axios.post("http://localhost:8080/rest/clients/",this.clientData)
       .then(response=>{
         this.loadData();
       })

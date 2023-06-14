@@ -1,0 +1,30 @@
+table {
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+  }
+  th{
+    
+    border: 1px solid black!important;
+    background-color: #ce8ec2;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+  td{
+    border: 1px solid black!important;
+    border-radius: 4px;
+    width: 15rem;
+    padding: 1rem;
+  }
+  #no_transaction{
+    font-size: 3rem;
+    color: #9b8d98;
+  }
+  #logoNav{
+    height: 4rem;
+  }
+  .account_main{
+    margin-top: 2rem ;
+    margin-bottom: 2rem;
+  }

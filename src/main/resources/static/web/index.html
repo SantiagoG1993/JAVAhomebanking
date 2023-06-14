@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tus cuentas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/indexStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <!-- Nav Bar -->
+            <nav id="navbar">
+                <ul>
+                    <li style="text-decoration: underline;"><a href="#">Home</a></li>
+                    <li><a href="./pages/accounts.html">Accounts</a></li>
+                    <li><a href="#">Tranfers</a></li>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Configuration</a></li>
+                </ul>
+                <!-- Login Form nav -->
+                <div class="login-container">
+                    <form>
+                        <input type="text" placeholder="User name">
+                        <input type="password" placeholder="Password">
+                        <button type="submit">Sign up</button>
+                    </form>
+                </div>
+            </nav>
+        </header>
+        <main id="main_index">
+            <!-- Logo y Slogan-->
+            <div class="box2">
+                <img src="./style/assets/logoHomebanking.png" alt="logoHomebanking" id="logoMain">
+                <h2>'Confidence through security: Protecting your data and guaranteeing secure transactions.'
+                </h2>
+            </div>
+            <!-- Img main Bank -->
+            <div class="box1">
+                <h1>Welcome to Online Banking</h1>
+            </div>
+            
+              
+            <!-- promo buttons -->
+            <div id="promo_buttons_box">
+                <div class="promo_btn">
+                    <i class="bi bi-journal-check"></i>
+                    <p>Manage accounts</p>
+                </div>
+                <div class="promo_btn">
+                    <i class="bi bi-cash-coin"></i>
+                    <p>Trasfer and pay</p>
+                </div>
+                <div class="promo_btn">
+                    <i class="bi bi-graph-up"></i>
+                    <p>Financial Planning</p>
+                </div>
+                <div class="promo_btn">
+                    <i class="bi bi-phone"></i>
+                    <p>Moblie features</p>
+                </div>
+            </div>
+            
+            <!-- cards -->
+            <div class="box3">
+                <div id="card">
+                    <img src="./style/assets/atencionCliente.jpg" alt="">
+                    <p>Dedicated customer support team..</p>
+                    <button>Show more</button>
+                </div>
+                <div id="card">
+                    <img src="./style/assets/prestamo.webp" alt="">
+                    <p>Finance your goals with us.</p>
+                    <button>Show more</button>
+                </div>
+                <div id="card">
+                    <img src="./style/assets/tarejeta.webp" alt="">
+                    <p>Discover how to save and earn with our promotions</p>
+                    <button>Show more</button>
+                </div>
+            </div>
+            <!-- icons -->
+            <div id="icons">
+                <div>
+                    <i class="bi bi-geo-alt"></i>
+                    <p>Find us</p></a>
+                </div>
+                <div>
+                    <i class="bi bi-phone-vibrate"></i>
+                    <p>Contact us</p>
+                </div>
+                <div>
+                    <i class="bi bi-question-circle"></i>
+                    <p>We help you</p>
+                </div>
+            </div>
+            <!-- Download App -->
+            <div id="download_app_box">
+                <img src="./style/assets/downloadApp.jpg" alt="donwload_app">
+                 <button id="download_btn">Download App!</button>
+            </div>
+            <iframe id="map"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d820.9893377238202!2d-58.409800667035014!3d-34.6052399563793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sar!4v1686462417091!5m2!1ses!2sar"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </main>
+        <footer>
+            <p> 2023 Gamarra Online Banking - All rights reserved</p>
+        </footer>
+    </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/accounts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+#logoNav{
+    height: 4rem;
+  }
+  #main_cards{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .mainbg h2{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 3rem;
+    color: #464545;
+    padding-top: 2rem;
+  }
+  #card_account{
+    width: 16rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px  15px 10px 15px;
+    border: 1px solid rgb(212, 211, 211);
+  }
+  #card_account:hover{
+/*     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+border: 1.4px solid rgb(91, 91, 91);
+  }
+  #card_account button{
+    width: 10rem;
+    height: 2rem;
+    border-radius: 3px;
+    background-color: #4645457d;
+    border: none;
+  }
+  #card_account button:hover{
+    background-color: #ef88a6;
+    cursor: pointer;
+
+  }
+  #ul_card{
+    gap: .5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #card_account ul li{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+  }
+  p{
+    font-size: 1.3rem;
+  }
+  .mainbg{
+  display: flex;
+  flex-direction: column;
+  }
+  /* account */
+  .account_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .bi-arrow-left-circle-fill{
+    padding-left: 30px;
+    font-size: 4rem;
+    color: #003C70;
+  }
+  .bi-arrow-left-circle-fill:hover{
+    color: #ef88a6;
+  }
