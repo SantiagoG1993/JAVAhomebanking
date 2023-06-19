@@ -15,8 +15,6 @@ public class AccountDTO {
     private Client client;
     private Set<TransactionDTO> transaction;
 
-    public AccountDTO(){}
-
     public AccountDTO(Account account) {
         this.id = account.getIdAccount();
         this.number = account.getNumber();
@@ -27,37 +25,27 @@ public class AccountDTO {
                 .map(transaction -> new TransactionDTO(transaction))
                 .collect(Collectors.toSet());
     }
-
     public long getId() {
         return id;
     }
-
-
     public void setId(long id) {
         this.id = id;
     }
-
-
     public String getNumber() {
         return number;
     }
-
     public void setNumber(String number) {
         this.number = number;
     }
-
     public double getBalance() {
         return balance;
     }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
-
     public LocalDate getCreationDate() {
         return creationDate;
     }
-
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }

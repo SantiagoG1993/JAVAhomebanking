@@ -36,13 +36,25 @@
             <a href="../index.html"><i class="bi bi-arrow-left-circle-fill"></i></a>
             <!-- Cuentas -->
             <div id="main_cards">
-                <div id="card_account" v-for="client of clientsSorted">
+                <div id="card_account" v-for="account of accountsSorted">
                     <ul id="ul_card">
-                        <li>Account number:{{client.number}}</li>
-                        <li>Date: {{client.creationDate}}</li>
-                        <li>Balance:{{client.balance}}</li>
-                        <a :href="'./account.html?id='+client.id"><button>Show transactions</button></a>
+                        <i class="bi bi-wallet2"></i>
+                        <li>Account number:{{account.number}}</li>
+                        <li>Date: {{account.creationDate}}</li>
+                        <li>Balance:{{account.balance}}</li>
+                        <a :href="'./account.html?id='+account.id"><button>Show transactions</button></a>
                     </ul>
+                </div>              
+                <div v-if="loans.length>0" id="loan_cards">
+                    <div id="card_account" v-for="loan of loans">
+                        <ul id="ul_card">
+                            <i class="bi bi-cash-coin"></i>
+                            <li>Loan name:{{loan.name}}</li>
+                            <li>Loan amount: {{loan.amount}}</li>
+                            <li>Loan payments:{{loan.payments}}</li>
+                        </ul>
+                    </div>
+                <div>
                 </div>
             </div>
         </main>

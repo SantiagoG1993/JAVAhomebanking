@@ -16,49 +16,28 @@ public class TransactionDTO{
         private Account account;
         private double amount;
 
-        public TransactionDTO(){}
-
-
     public TransactionDTO(Transaction transaction) {
         this.type = transaction.getType();
         this.creationDate = transaction.getCreationDate();
         this.description = transaction.getDescription();
         this.amount=transaction.getAmount();
     }
-
     public double getAmount() {
         return amount;
     }
-
     public LocalDateTime getCreationDate() {
             return creationDate;
         }
-
-        public void setCreationDate(LocalDateTime creationDate) {
-            this.creationDate = creationDate;
-        }
-
         public String getDescription() {
             return description;
         }
-
-        public void setDescription(String description) {
-            this.description = description;
-        }
-
         public TransactionType getType() {
             return type;
-        }
-
-        public void setType(TransactionType type) {
-            this.type = type;
         }
     @JsonIgnore
         public Account getAccount() {
             return account;
         }
-
-
         public void setAccount(Account account) {
             this.account = account;
         }

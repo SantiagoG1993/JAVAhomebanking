@@ -35,11 +35,14 @@ public class Account {
     }
 
     public Account(){}
-    public Account(String number, LocalDate creationDate, Double balance,Client client){
+    public Account(String number, LocalDate creationDate, Double balance){
         this.number=number;
         this.balance=balance;
         this.creationDate=creationDate;
-        this.client=client;
+    }
+    public void addTransaction(Transaction transaction){
+        transaction.setAccount(this);
+        this.transaction.add(transaction);
     }
     public  long getIdAccount() {
         return id;

@@ -1,13 +1,30 @@
 #logoNav{
     height: 4rem;
   }
-  #main_cards{
+  #main_cards {
     justify-content: center;
     width: 100%;
     display: flex;
     gap: 2rem;
     align-items: center;
     flex-wrap: wrap;
+  }
+  #loan_cards{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 2rem;
+  }
+  .bi-cash-coin{
+    font-size: 3rem;
+    color: green;
+  }
+  .bi-wallet2{
+    font-size: 3rem;
+    color: brown;
   }
   .mainbg h2{
     text-align: center;
@@ -27,8 +44,8 @@
     border: 1px solid rgb(212, 211, 211);
   }
   #card_account:hover{
-/*     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
-border: 1.4px solid rgb(91, 91, 91);
+    box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+/* border: 1.4px solid rgb(91, 91, 91); */
   }
   #card_account button{
     width: 10rem;

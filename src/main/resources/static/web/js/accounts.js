@@ -5,9 +5,9 @@ const app = createApp({
   data() {
 
     return{
-    mensaje:'santi',
     clients:[],
-    clientsSorted:[]
+    accountsSorted:[],
+    loans:[]
   }
   },
   created() {
@@ -21,7 +21,12 @@ const app = createApp({
       axios.get("http://localhost:8080/api/clients/1")
       .then(response => {
       this.clients=response.data
-      this.clientsSorted=this.clients.accounts.sort((a, b)=> a.balance - b.balance)
+      this.accountsSorted=this.clients.accounts.sort((a, b)=> a.balance - b.balance)
+      console.log(this.accountsSorted)
+      this.loans=this.clients.loans
+      console.log(this.loans)
+
+      
 
       
   
