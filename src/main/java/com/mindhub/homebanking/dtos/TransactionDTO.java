@@ -34,10 +34,6 @@ public class TransactionDTO{
         public TransactionType getType() {
             return type;
         }
-    @JsonIgnore
-        public Account getAccount() {
-            return account;
-        }
         public void setAccount(Account account) {
             this.account = account;
         }

@@ -19,7 +19,7 @@ public class HomebankingApplication {
     }
 
     @Bean
-    public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accountRepository, TransactionRepository transactionRepository, LoanRepository loanRepository, ClientLoanRepository clientLoanRepository) {
+    public CommandLineRunner initData(ClientRepository clientRepository, AccountRepository accountRepository, TransactionRepository transactionRepository, LoanRepository loanRepository, ClientLoanRepository clientLoanRepository, CardRepository cardRepository) {
         return (args) -> {
             Client client1 = new Client("Melba", "Morel", "Melba@mindhub.com");
             Client client2 = new Client("Santiago", "Gamarra", "santiago.gamarra@gmail.com");
@@ -34,12 +34,17 @@ public class HomebankingApplication {
             client1.addAccount(account3);
             client2.addAccount(account4);
 
-            Transaction transaction1=new Transaction(TransactionType.CREDIT, LocalDateTime.now(),"descripcion 1",1000.0);
-            Transaction transaction2=new Transaction(TransactionType.DEBIT,LocalDateTime.now(),"descripcion 2",-2500.0);
-            Transaction transaction3=new Transaction(TransactionType.CREDIT,LocalDateTime.now(),"descripcion 3",3500.20);
-            Transaction transaction4=new Transaction(TransactionType.CREDIT,LocalDateTime.now(),"descripcion 4",1000.0);
-            Transaction transaction5=new Transaction(TransactionType.DEBIT,LocalDateTime.now(),"descripcion 5",-3433.0);
-            Transaction transaction6=new Transaction(TransactionType.CREDIT,LocalDateTime.now(),"Transferencia de fondos 5",15000.0);
+            Transaction transaction1=new Transaction(TransactionType.CREDIT, LocalDateTime.now(),"description 1",1000.0);
+            Transaction transaction2=new Transaction(TransactionType.DEBIT,LocalDateTime.now(),"description 2",-2500.0);
+            Transaction transaction3=new Transaction(TransactionType.CREDIT,LocalDateTime.now(),"description 3",3500.20);
+            Transaction transaction4=new Transaction(TransactionType.CREDIT,LocalDateTime.now(),"description 4",1000.0);
+            Transaction transaction5=new Transaction(TransactionType.DEBIT,LocalDateTime.now(),"description 5",-3433.0);
+            Transaction transaction6=new Transaction(TransactionType.CREDIT,LocalDateTime.now(),"description 5",15000.0);
+
+            Card card1=new Card(LocalDate.now(),LocalDate.now().plusYears(5),122,"3325-6745-7876-4445","Melba Morel",CardType.DEBIT,CardColor.GOLD,client1);
+            Card card2=new Card(LocalDate.now(),LocalDate.now().plusYears(5),211,"2225-6724-56336-2889","Melba Morel",CardType.CREDIT,CardColor.TITANIUM,client1);
+            Card card3=new Card(LocalDate.now(),LocalDate.now().plusYears(5),113,"2255-5666-3634-1112","Santiago Gamarra",CardType.CREDIT,CardColor.SILVER,client2);
+
 
             account1.addTransaction(transaction1);
             account1.addTransaction(transaction2);
@@ -50,6 +55,9 @@ public class HomebankingApplication {
 
             clientRepository.save(client1);
             clientRepository.save(client2);
+            cardRepository.save(card1);
+            cardRepository.save(card2);
+            cardRepository.save(card3);
 
             accountRepository.save(account1);
             accountRepository.save(account2);

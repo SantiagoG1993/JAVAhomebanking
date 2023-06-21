@@ -60,7 +60,7 @@ public class Transaction {
     public void setType(TransactionType type) {
         this.type = type;
     }
-    @JsonIgnore
+
     public Account getAccount() {
         return account;
     }

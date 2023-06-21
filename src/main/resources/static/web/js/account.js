@@ -5,16 +5,14 @@ const app = createApp({
   data() {
 
     return{
-    accounts:[],
-    accountId:[],
-    accountById:[],
-    transactions:[],
     transactionSorted:[]
 
         }
   },
   created() {
     this.loadData()
+    const params=new URLSearchParams(location.search)
+    accountId=params.get('id')
 
 
   },
@@ -22,13 +20,10 @@ const app = createApp({
     loadData(){
       axios.get("http://localhost:8080/api/accounts/")
       .then(response => {
-      this.accounts=response.data
-             const params=new URLSearchParams(location.search)
-             this.accountId=params.get('id')
-       this.accountById = this.accounts.find(accounts => accounts.id == this.accountId)
-       this.transactions = this.accountById.transaction
-       this.transactionSorted=this.transactions.sort((a,b)=> a.amount - b.amount)
-    
+      const accounts=response.data
+      const accountById = accounts.find(accounts => accounts.id == accountId)
+      const transactions = accountById.transaction
+      this.transactionSorted=transactions.sort((a,b)=> a.amount - b.amount)
   
       })
       .catch(error => {

@@ -1,8 +1,5 @@
 package com.mindhub.homebanking.models;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -17,7 +14,7 @@ public class Account {
     private long id;
     private String number;
     private double balance;
-     private LocalDate creationDate;
+    private LocalDate creationDate;
 
      @ManyToOne(fetch = FetchType.EAGER)
      @JoinColumn(name="client_id")

@@ -10,9 +10,9 @@
     flex-wrap: wrap;
   }
   #loan_cards{
-    justify-content: center;
     width: 100%;
     display: flex;
+    justify-content: center;
     gap: 2rem;
     align-items: center;
     flex-wrap: wrap;
@@ -90,4 +90,10 @@
   }
   .bi-arrow-left-circle-fill:hover{
     color: #ef88a6;
+  }
+  @media (max-width: 600px){
+    #loan_cards{
+    flex-direction: column;
+    }
+
   }
