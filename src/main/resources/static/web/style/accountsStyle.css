@@ -18,14 +18,7 @@
     flex-wrap: wrap;
     margin: 2rem;
   }
-  .bi-cash-coin{
-    font-size: 3rem;
-    color: green;
-  }
-  .bi-wallet2{
-    font-size: 3rem;
-    color: brown;
-  }
+
   .mainbg h2{
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -34,41 +27,48 @@
     padding-top: 2rem;
   }
   #card_account{
-    width: 16rem;
-    height: 12rem;
+    width: 23rem;
+    height: 19rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    border-radius: 10px  15px 10px 15px;
-    border: 1px solid rgb(212, 211, 211);
+    border-radius:50px;
+    background-color: rgb(216, 215, 215);
+    transition: all 80ms ease-in;
   }
   #card_account:hover{
     box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
-/* border: 1.4px solid rgb(91, 91, 91); */
-  }
-  #card_account button{
-    width: 10rem;
-    height: 2rem;
-    border-radius: 3px;
-    background-color: #4645457d;
-    border: none;
-  }
-  #card_account button:hover{
-    background-color: #ef88a6;
-    cursor: pointer;
-
+    border-radius: 5px;
+    width: 25rem;
+    background-color: rgb(228, 220, 208);
   }
   #ul_card{
     gap: .5rem;
     display: flex;
     flex-direction: column;
   }
-
-  #card_account ul li{
+  #account_number, #loan_name{
     color: black;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+  }
+  #account_date,#loan_payments{
+    color: black;
+  }
+  #account_date i{
+    color: rgb(212, 68, 68);
+    font-size: 1.3rem;
+    margin-right: .3rem;
+  }
+  #balance, #loan_amount{
+    color: black;
+    font-size: 2.5rem;
+  }
+  #wallet_img, #loan_img{
+    width: 8rem;
   }
   p{
     font-size: 1.3rem;
@@ -76,6 +76,11 @@
   .mainbg{
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+opacity: 1;
+background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
+background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
+  
   }
   /* account */
   .account_main{
@@ -86,11 +91,57 @@
   .bi-arrow-left-circle-fill{
     padding-left: 30px;
     font-size: 4rem;
-    color: #003C70;
+    color: #414346;
+    transition: all .5s ease-in-out;
   }
   .bi-arrow-left-circle-fill:hover{
-    color: #ef88a6;
+    color: #F8885A;
   }
+  #signout_btn{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 9rem;
+    height: 3rem;
+    margin-right: 2rem;
+    border-radius: 15px;
+    border: none;
+    background-color: #0CC2BD;
+    transition: all .2s ease-in-out;
+  }
+  #signout_btn:hover{
+    background-color: #f86c34;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  #signout_btn i{
+    font-size: 1.2rem;
+  }
+  #create_btn{
+    margin-left: 2rem;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    border-radius: 30px;
+    background-color: #0CC2BD;
+    transition: all .2s ease-in-out;
+  }
+  #create_btn i{
+    font-size: 1.2rem;
+  }
+  #create_btn:hover{
+    background-color: #f86c34;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+
   @media (max-width: 600px){
     #loan_cards{
     flex-direction: column;

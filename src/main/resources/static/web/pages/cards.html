@@ -25,101 +25,37 @@
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="./accounts.html">Accounts</a></li>
                     <li style="text-decoration: underline;"><a href="#">Cards</a></li>
-                    <li><a href="#">Payments</a></li>
-                    <li><a href="#">Configuration</a></li>
                 </ul>
-                <!-- Login Form -->
-                <img src="../style/assets/logoHomebanking.png" alt="logoHomebankingNavBar" id="logoNav">
+                <button @click="signOut" id="signout_btn" type="submit">Sign out <i class="bi bi-box-arrow-left"></i></button>
             </nav>
         </header>
         <main class="mainbg">
-            <a href="../index.html"><i class="bi bi-arrow-left-circle-fill"></i></a>
-            <h2>Debit Cards:</h2>
-            <div v-for="card of debitCards" class="container">
-                <div v-if="debitCards.length!=0" class="card">
-                    <div class="card-inner">
-                        <div class="front">
-                            <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
-                            <div class="row" id="imgs">
-                                <img id="chip" src="https://i.ibb.co/G9pDnYJ/chip.png">
-                                <img id="visa1" src="https://i.ibb.co/WHZ3nRJ/visa.png">
-                            </div>
-                            <div class="row card-no">
-                                {{card.number}}
-                            </div>
-                            <div class="row card-holder">
-                                <p>CARD HOLDER</p>
-                                <p>VALID TILL</p>
-                            </div>
-                            <div class="row name">
-                                <p>{{card.cardholder}}</p>
-                                <p>{{card.truDate.slice(0 -5)}}</p>
-                            </div>
+            <a href="./index.html"><i class="bi bi-arrow-left-circle-fill"></i></a>
+            <a href="./create-cards.html"><button v-if="cards.length<6" id="create_btn">Create<i class="bi bi-plus-square"></i></button></a>
+            <div id="cards_container">
+                <div v-for="card of cards">
+                    <div id="card_body">
+                        <p id="card_type">{{card.type}} CARD</p>
+                        <div id="card_img">
+                            <img src="../style/assets/chip_card.png" alt="">
+                            <img src="../style/assets/logoBank.png" alt="">
                         </div>
-                        <div class="back">
-                            <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
-                            <div class="bar"></div>
-                            <div class="row card-cvv">
-                                <div>
-                                    <img src="https://i.ibb.co/S6JG8px/pattern.png">
-                                </div>
-                                <p>{{card.cvv}}</p>
-                            </div>
-                            <div class="row signature">
-                                <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="80px">
-                            </div>
+                        <p id="card_number">{{card.number}}</p>
+                        <div id="card_name_date">
+                            <p>{{card.cardholder}}</p>
+                            <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
                         </div>
+                        <p id="card_cvv">{{card.cvv}}</p>
                     </div>
                 </div>
-                <h2 v-else>Does not have debit cards</h2>
-            </div>
-            <h2>Credit Cards:</h2>
-            <div v-for="card of creditCards" class="container">
-                <div v-if="creditCards.length!=0" class="card">
-                    <div class="card-inner">
-                        <div class="front">
-                            <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
-                            <div class="row" id="imgs">
-                                <img id="chip" src="https://i.ibb.co/G9pDnYJ/chip.png">
-                                <img id="visa1" src="https://i.ibb.co/WHZ3nRJ/visa.png">
-                            </div>
-                            <div class="row card-no">
-                                {{card.number}}
-                            </div>
-                            <div class="row card-holder">
-                                <p>CARD HOLDER</p>
-                                <p>VALID TILL</p>
-                            </div>
-                            <div class="row name">
-                                <p>{{card.cardholder}}</p>
-                                <p>{{card.truDate.slice(0 -5)}}</p>
-                            </div>
-                        </div>
-                        <div class="back">
-                            <img src="https://i.ibb.co/PYss3yv/map.png" class="map-img">
-                            <div class="bar"></div>
-                            <div class="row card-cvv">
-                                <div>
-                                    <img src="https://i.ibb.co/S6JG8px/pattern.png">
-                                </div>
-                                <p>{{card.cvv}}</p>
-                            </div>
-                            <div class="row signature">
-                                <img src="https://i.ibb.co/WHZ3nRJ/visa.png" width="80px">
-                            </div>
-                        </div>
-                    </div>
+            <div>
+
+
                 </div>
-                <h2 v-else>Does not have debit cards</h2>
-            </div>
-
-
-
-    </div>
-    </main>
-    <footer>
-        <p> 2023 Gamarra Online Banking - All rights reserved</p>
-    </footer>
+        </main>
+        <footer>
+            <p> 2023 Gamarra Online Banking - All rights reserved</p>
+        </footer>
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

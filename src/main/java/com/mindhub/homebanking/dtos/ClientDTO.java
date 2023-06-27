@@ -17,7 +17,7 @@ private Set<CardDTO> cards;
         this.id = client.getId();
         this.firstName = client.getFirstName();
         this.lastName = client.getLastName();
-        this.eMail = client.geteMail();
+        this.eMail = client.getEmail();
         this.accounts=client.getAccounts().stream().map(accounts -> new AccountDTO(accounts)).collect(Collectors.toSet());
         this.loans=client.getClientLoans().stream().map(clientLoan-> new ClientLoanDTO(clientLoan)).collect(Collectors.toSet());
         this.cards=client.getCards().stream().map(card->new CardDTO(card)).collect(Collectors.toSet());

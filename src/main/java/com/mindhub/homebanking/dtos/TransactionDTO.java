@@ -16,6 +16,7 @@ public class TransactionDTO{
         private Account account;
         private double amount;
 
+
     public TransactionDTO(Transaction transaction) {
         this.type = transaction.getType();
         this.creationDate = transaction.getCreationDate();

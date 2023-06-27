@@ -1,7 +1,10 @@
 package com.mindhub.homebanking.models;
         import javax.persistence.*;
         import org.hibernate.annotations.GenericGenerator;
+        import org.springframework.security.core.GrantedAuthority;
+
         import java.util.HashSet;
+        import java.util.List;
         import java.util.Set;
 @Entity
 public class Client {
@@ -11,7 +14,8 @@ public class Client {
     private Long id;
     private String firstName;
     private String lastName;
-    private String eMail;
+    private String email;
+    private String password;
     @OneToMany(mappedBy = "client", fetch=FetchType.EAGER)
     private Set<Account> accounts= new HashSet<>();
     @OneToMany(mappedBy = "client")
@@ -19,16 +23,26 @@ public class Client {
     @OneToMany(mappedBy = "client")
     private Set<Card> cards=new HashSet<>();
 
+    public Client() {
+    }
 
-    public Client(){}
-    public  Client(String firstName, String lastName, String eMail){
+    public  Client(String firstName, String lastName, String email, String password){
         this.firstName=firstName;
         this.lastName=lastName;
-        this.eMail=eMail;
+        this.email = email;
+        this.password=password;
     }
 
     public Set<Card> getCards() {
         return cards;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void addClientLoan(ClientLoan clientLoan){
@@ -45,14 +59,19 @@ public class Client {
         account.setClient(this);
         this.accounts.add(account);
     }
+    public void addCard(Card card){
+        card.setClient(this);
+        this.cards.add(card);
+    }
+
     public Long getId() {
         return id;
     }
-    public String geteMail(){
-        return eMail;
+    public String getEmail(){
+        return email;
     }
-    public void seteMail(String eMail){
-        this.eMail=eMail;
+    public void setEmail(String email){
+        this.email = email;
     }
 
     public String getFirstName(){
@@ -76,7 +95,7 @@ public class Client {
         return "Client{" +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", eMail='" + eMail + '\'' +
+                ", eMail='" + email + '\'' +
                 '}';
     }
 

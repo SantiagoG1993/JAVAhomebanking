@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style/loginStyle.css">
+    <link rel="stylesheet" href="./style/indexStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+        </header>
+        <main>
+            <div id="container_login">
+                <img src="./style/assets/login.jpg" alt="">
+               <div id="login_body">
+                    <form v-if="showForm==false" @submit.prevent="logIn">
+                            <input v-model="username" type="text" name="username" id="username" placeholder="Username">
+                            <input v-model="password" type="password" name="password" id="password" placeholder="Password">
+                            <input type="submit" value="Sign in">
+                    </form>
+                    <p id="error_message"></p>
+                   <button v-if="showForm==false" @click="showRegisterForm" id="register_btn">Register</button>
+
+                        <form id="register_form" v-if="showForm" @submit.prevent="createAccount">
+                                <input v-model="firstName" type="text" name="firstName" id="firstName" placeholder="First Name">
+                                <input v-model="lastName" type="text" name="lastName" id="lastname" placeholder="Last Name">
+                                <input v-model="registerEmail" type="email" name="email" id="email" placeholder="Email">
+                                <input v-model="registerPassword" type="password" name="registerPassword" id="registerPassword" placeholder="Password">
+                                <input type="submit" value="Create account">
+                        </form>
+
+               </div>
+            </div>
+        </main>
+        <footer>
+            <p> 2023 Gamarra Online Banking - All rights reserved</p>
+        </footer>
+    </div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./js/login.js"></script>
+</body>
+
+</html>

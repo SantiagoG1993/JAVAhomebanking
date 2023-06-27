@@ -28,7 +28,7 @@ public class Card {
     public Card() {
     }
 
-    public Card(LocalDate fromDate, LocalDate truDate, int cvv, String number, String cardholder, CardType type, CardColor color, Client client) {
+    public Card(LocalDate fromDate, LocalDate truDate, int cvv, String number, String cardholder, CardType type, CardColor color) {
         this.fromDate = fromDate;
         this.truDate = truDate;
         this.cvv = cvv;
@@ -36,7 +36,6 @@ public class Card {
         this.cardholder = cardholder;
         this.type = type;
         this.color = color;
-        this.client = client;
     }
 
     public Long getId() {

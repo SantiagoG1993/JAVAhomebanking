@@ -9,7 +9,6 @@ const app = createApp({
         lastName:"",
         eMail:""
       },
-      mensaje: 'Hello Vue!',
       clients:[],
       restResponse:""
 

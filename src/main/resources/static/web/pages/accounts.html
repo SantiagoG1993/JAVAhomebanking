@@ -24,34 +24,32 @@
                     <li><a href="../index.html">Home</a></li>
                     <li style="text-decoration: underline;"><a href="#">Accounts</a></li>
                     <li><a href="./cards.html">Cards</a></li>
-                    <li><a href="#">Payments</a></li>
-                    <li><a href="#">Configuration</a></li>
                 </ul>
+                <button @click="signOut" id="signout_btn" type="submit">Sign out <i class="bi bi-box-arrow-left"></i></button>
                 <!-- Login Form -->
-                <img src="../style/assets/logoHomebanking.png" alt="logoHomebankingNavBar" id="logoNav">
             </nav>
         </header>
         <main class="mainbg">
-            <h2>Welcome {{clients.firstName}} {{clients.lastName}}</h2>
+            <h2>Your accounts: {{clients.firstName}} {{clients.lastName}}</h2>
             <a href="../index.html"><i class="bi bi-arrow-left-circle-fill"></i></a>
+            <button v-if="accountsSorted.length<3" @click="createAccounts" id="create_btn">Create<i class="bi bi-plus-square"></i></button>
             <!-- Cuentas -->
             <div id="main_cards">
                 <div id="card_account" v-for="account of accountsSorted">
+                    <a :href="'./account.html?id='+account.id"><img id="wallet_img" src="../style/assets/wallet.png" alt="wallet">
                     <ul id="ul_card">
-                        <i class="bi bi-wallet2"></i>
-                        <li>Account number:{{account.number}}</li>
-                        <li>Date: {{account.creationDate}}</li>
-                        <li>Balance:{{account.balance}}</li>
-                        <a :href="'./account.html?id='+account.id"><button>Show transactions</button></a>
-                    </ul>
+                        <li id="account_number">Number:{{account.number}}</li>
+                        <li id="account_date"><i class="bi bi-calendar-month"></i>{{account.creationDate}}</li>
+                        <li id="balance">${{account.balance}}</li>
+                    </ul></a>
                 </div>              
                 <div v-if="loans.length>0" id="loan_cards">
                     <div id="card_account" v-for="loan of loans">
+                        <img id="loan_img" src="../style/assets/loan.png" alt="loan">
                         <ul id="ul_card">
-                            <i class="bi bi-cash-coin"></i>
-                            <li>Loan name:{{loan.name}}</li>
-                            <li>Loan amount: {{loan.amount}}</li>
-                            <li>Loan payments:{{loan.payments}}</li>
+                            <li id="loan_name">{{loan.name}}</li>
+                            <li id="loan_amount"> ${{loan.amount}}</li>
+                            <li id="loan_payments">Payments:{{loan.payments}}</li>
                         </ul>
                     </div>
                 <div>

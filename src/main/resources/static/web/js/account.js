@@ -30,6 +30,10 @@ const app = createApp({
         console.error(error);
       });
     },
+    signOut(){
+      axios.post('/api/logout')
+      .then(response => window.location.href="/web/login.html")
+    }
   }
 
 });app.mount('#app')
