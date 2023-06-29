@@ -27,13 +27,13 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: inline;
     margin-right: 15px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding-left: 2rem;
   }
   a {
-    color: white;
+  
     text-decoration: none!important;
-    color: #333!important;
+    color: white!important;
   }
   a:hover {
     color: #fff;
@@ -133,17 +133,20 @@ border-radius: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #afaace;
+    background-color: #eeeeee;
     justify-content: center;
     width: 227px;
-    color: white;
+    color: rgb(33, 33, 33);
     height: 130px;
-    border-radius: 4px;
+    border-radius: 15px;
+    transition: all .3s ease;
     cursor: pointer;
   }
   .promo_btn:hover{
     background-color: #F8885A;
+    transform: translate(4px);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
   }
   .promo_btn i{
     font-size: 2.3rem;
@@ -159,17 +162,17 @@ border-radius: 30px;
   width: 90%;
   border-radius: 8px;
  /*  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
-background: rgb(249, 123, 160);
-background: linear-gradient(278deg, #F8885A , #0CC3BF);
+background: linear-gradient(278deg, #ff9166 , #13dbd8);
 }
  #card{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
 text-align: center;
-    background-color: #4b545e ;
+background: rgb(137,223,245);
+background: linear-gradient(126deg, rgba(137,223,245,1) 30%, rgba(88,178,214,1) 65%); 
     border-radius: 10px  40px 10px 40px;
     height: 25rem;
     width: 20rem;
@@ -237,8 +240,8 @@ text-align: center;
 }
 
  #icons i{
-  color: white;
-  background-color: #414D5B ;
+  color: rgb(43, 43, 43);
+  background-color: #c6c5c5 ;
   border-radius: 8%;
   padding: 1rem;
 }

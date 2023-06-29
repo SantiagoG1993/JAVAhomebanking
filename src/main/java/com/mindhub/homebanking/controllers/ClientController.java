@@ -52,10 +52,13 @@ public class ClientController {
         }
        Client client=clientRepository.save(new Client(firstName, lastName, email, passwordEncoder.encode(password)));
 
-        int randomNumber=new Random().nextInt(1000);
-        String accountNumber = "VIN-" + randomNumber;
+        String randomNumber;
+        do{
+            Random random=new Random();
+            randomNumber="VIN-"+random.nextInt(90000000);
+        }while(accountRepository.findByNumber(randomNumber)!=null);
 
-        Account account=new Account(accountNumber, LocalDate.now(),0.0);
+        Account account=new Account(randomNumber, LocalDate.now(),0.0);
         client.addAccount(account);
         accountRepository.save(account);
 

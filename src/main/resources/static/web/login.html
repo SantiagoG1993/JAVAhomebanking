@@ -18,19 +18,29 @@
 <body>
     <div id="app">
         <header>
+            <div id="logo_login">
+                <img src="./style/assets/logoHomebanking.png" alt="">
+            </div>
         </header>
-        <main>
+        <main id="main_login">
             <div id="container_login">
                 <img src="./style/assets/login.jpg" alt="">
+                <!-- Form login -->
                <div id="login_body">
+                <h1>Log in</h1>
                     <form v-if="showForm==false" @submit.prevent="logIn">
                             <input v-model="username" type="text" name="username" id="username" placeholder="Username">
                             <input v-model="password" type="password" name="password" id="password" placeholder="Password">
+                            <label for="rememberMe">
+                                <input type="checkbox">Remember me
+                            </label>
                             <input type="submit" value="Sign in">
+                            
                     </form>
                     <p id="error_message"></p>
+                    <p id="forgot_pwd">I forgot my password</p>
                    <button v-if="showForm==false" @click="showRegisterForm" id="register_btn">Register</button>
-
+<!-- Form Register -->
                         <form id="register_form" v-if="showForm" @submit.prevent="createAccount">
                                 <input v-model="firstName" type="text" name="firstName" id="firstName" placeholder="First Name">
                                 <input v-model="lastName" type="text" name="lastName" id="lastname" placeholder="Last Name">

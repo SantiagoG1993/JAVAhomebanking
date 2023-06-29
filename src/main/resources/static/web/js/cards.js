@@ -26,7 +26,6 @@ const app = createApp({
                 this.creditCards=this.cards.filter((card=>{
                     return card.type=="CREDIT"
                 }))
-                console.log(this.cards)
             })
             .catch(error=>{
                 console.log(error)

@@ -2,11 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#main_login{
+    background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
+background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
+}
+
+
+#logo_login{
+/*     border: 3px solid red; */
+    height: 15vh;
+}
+#logo_login img{
+    height: 100%;
+}
+h1{
+    font-size: 3rem;
+    color: rgb(109, 100, 100);
 }
 #container_login{
     width: 100%;
     height: 80vh;
     display: flex;
+    flex-direction: row-reverse;
+}
+#container_login img{
+    width: 55%;
 }
 #login_body{
     display: flex;
@@ -15,42 +37,65 @@
     justify-content: center;
     width: 35%;
     height: 100%;
-    background-color:#D7D4E7;
-    border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+/*     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
 }
 form{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    height: 200px;
+    justify-content: center;
+    gap: 3rem;
+    height: 60%;
     width: 80%;
 }
 input[type="text"], [type="password"], [type="email"]{
-    padding: 1rem;
-    color: grey;
+    padding: 1.5rem;
     border: none;
-    border-radius: 30px;
+    border-bottom: 3px solid  #F8885A;
+    font-size: 1.2rem;
 }
 input[type="submit"]{
     border: none;
-    background-color: #0CC2BD;
-    border-radius: 30px;
-    color: white;
+    font-size: 1.2rem;
+    background-color: #d6dcdc;
+    border-radius: 10px;
+    color: rgb(109, 100, 100);
+    transition: all .3s ease-in-out;
+    height: 2.9rem;
 }
 input[type="submit"]:hover{
     background-color: #F8885A;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+input[type="checkbox"]{
+    width: 1.5rem;
+    accent-color:#F8885A ;
+    color: white;
+}
+
+label{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+#forgot_pwd{
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #F8885A;
+}
+#forgot_pwd:hover{
+    text-decoration: underline;
     cursor: pointer;
 }
+
 form input {
     height: 2.5rem;
 }
 #error_message{
     color: red;
     font-size:1.3rem;
-}
-#register_btn{
-    text-decoration: underline;
 }
 
 #register_form{
@@ -63,9 +108,9 @@ form input {
 #register_btn{
     width: 10rem;
     height: 2rem;
-    border-radius: 30px;
+    border-radius: 10px;
     border: none;
-    background-color: #414D5B;
+    background-color: #909395;
     color: white;
     text-decoration: none;
     cursor: pointer;
@@ -74,4 +119,14 @@ form input {
     border: 2px solid white;
     background-color: #545b63;
     
+}
+.bi-arrow-left-circle-fill{
+    font-size: 4rem;
+    color: #6a6b6c;
+}
+.bi-arrow-left-circle-fill:hover{
+color: #fa733d;
+}
+@media (max-width: 1000px){
+
 }

@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -23,6 +24,10 @@ public class AccountController {
     private AccountRepository accountRepository;
     @Autowired
     private ClientRepository clientRepository;
+
+
+
+
 
     @RequestMapping("/accounts")
     public List<AccountDTO> getAccounts() {
@@ -36,13 +41,16 @@ public class AccountController {
     public ResponseEntity<Object> createAccount(Authentication authentication) {
         String email=authentication.getName();
         Set<Account> clientAccounts=clientRepository.findByEmail(email).getAccounts();
-
         if (clientAccounts.size()>=3){
             return new ResponseEntity<>("ya tiene 3 cuentas", HttpStatus.FORBIDDEN);
         }
-            int randomNumber=new Random().nextInt(1000);
-            String accountNumber = "VIN-" + randomNumber;
-            Account account=new Account(accountNumber,LocalDate.now(),0.0);
+            String randomNumber;
+            do{
+                Random random=new Random();
+                randomNumber="VIN-"+random.nextInt(90000000);
+            }while(accountRepository.findByNumber(randomNumber)!=null);
+
+            Account account=new Account(randomNumber,LocalDate.now(),0.0);
             Client client=clientRepository.findByEmail(email);
             client.addAccount(account);
             accountRepository.save(account);

@@ -4,26 +4,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+#main_cards{
+    background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
+background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
+}
 #cards_container{
     display: flex;
-    justify-content: center;
-    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    width: 70%;
+    gap: 1.8rem;
+    margin: 2rem;
 }
 #card_body{
-    color: rgb(51, 51, 51);
+    color: rgb(0, 0, 0);
     width: 25rem;
     height: 15rem;
     border-radius: 20px;
-    background: linear-gradient(31deg, rgba(245,229,137,1) 13%, rgba(133,109,25,1) 52%);
     display: flex;
     flex-direction: column;
+    transition: all .2s ease;
     align-items: center;
     gap: 1rem;
    
 }
 #card_body:hover{
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     color: rgb(0, 0, 0);
+    transform: translate(3px);
 
 }
 #card_type{

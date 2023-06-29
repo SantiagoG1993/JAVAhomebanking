@@ -16,16 +16,16 @@ import javax.servlet.http.HttpSession;
 @Configuration
 public class WebAuthorization {
     @Bean
-
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/api/clients").permitAll()
+                .antMatchers("/web/login.html","/web/style/**","/web/index.html","/web/js/**","/web/style/indexStyle.css").permitAll()
+                .antMatchers("/api/clients/current", "/api/accounts/").hasAuthority("CLIENT")
         .antMatchers("/h2-console/**", "/rest/**","/api/clients").hasAuthority("ADMIN")
-                .antMatchers("/web/login.html","/web/index.html", "/web/style/indexStyle.css").permitAll()
                 .antMatchers("/web/pages/**").hasAnyAuthority("ADMIN","CLIENT")
-                .antMatchers(HttpMethod.POST,"/api/clients/current/cards").hasAuthority("CLIENT");
-//                .antMatchers("/api/clients/current/accounts").hasAuthority("CLIENT");
+                .antMatchers(HttpMethod.POST,"/api/clients/current/cards","/api/clients/current/accounts").hasAuthority("CLIENT")
+        .anyRequest().denyAll();
 
         http.formLogin()
                 .usernameParameter("email")

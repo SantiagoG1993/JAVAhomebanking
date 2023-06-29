@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.time.LocalDate;
 import java.util.Random;
 import java.util.Set;
@@ -30,24 +29,34 @@ public class CardController {
 
         String email=authentication.getName();
         Client client=clientRepository.findByEmail(email);
-        Set<Card> clientCards=client.getCards();
 
-        if (clientCards.size()>=6 ) {
-            return new ResponseEntity<>("Ya tiene 3 tarjetas", HttpStatus.FORBIDDEN);
+        if (cardRepository.findByClientAndColorAndType(client,color,type)!=null ) {
+            return new ResponseEntity<>("Card already exist", HttpStatus.FORBIDDEN);
         }
+        if (clientHasMaxCardsOfType(client, type)){
+            return new ResponseEntity<>("Ya tiene 3 tarjetas", HttpStatus.FORBIDDEN);
 
-        int cvvRandom = new Random().nextInt(900) + 100;
+        }
+        int cvvRandom = new Random().nextInt(900)+100;
         String cardHolder=client.getFirstName()+" "+client.getLastName();
-        int randomNumber1= new Random().nextInt(9000)+1000;
-        int randomNumber2= new Random().nextInt(9000)+1000;
-        int randomNumber3= new Random().nextInt(9000)+1000;
-        int randomNumber4= new Random().nextInt(9000)+1000;
-        String randomCardNumber=randomNumber1+"-"+randomNumber2+"-"+randomNumber3+"-"+randomNumber4;
+
+        String randomCardNumber;
+        do{
+            Random random=new Random();
+            randomCardNumber=random.nextInt(9999)+"-"+random.nextInt(9999)+"-"+random.nextInt(9999)+"-"+random.nextInt(9999);
+        }while(cardRepository.findByNumber(randomCardNumber)!=null);
 
         Card card=new Card(LocalDate.now(),LocalDate.now().plusYears(5),cvvRandom,randomCardNumber,cardHolder,type,color);
         client.addCard(card);
         cardRepository.save(card);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+    private boolean clientHasMaxCardsOfType(Client client, CardType type) {
+        long count = client.getCards()
+                .stream()
+                .filter(card -> card.getType() == type)
+                .count();
+        return count >= 3;
     }
 
 }

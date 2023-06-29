@@ -14,7 +14,7 @@ const app = createApp({
         methods:{
             createCard(){
                 axios.post('/api/clients/current/cards?type=' + this.cardType + '&color=' + this.cardColor)
-                .then(response=> console.log("tarjeta creada!"))
+                .then(response=> window.location.href="/web/pages/cards.html")
             }
 
         }

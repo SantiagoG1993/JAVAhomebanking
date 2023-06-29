@@ -1,6 +1,7 @@
 #logoNav{
     height: 4rem;
   }
+
   #main_cards {
     justify-content: center;
     width: 100%;
@@ -18,32 +19,51 @@
     flex-wrap: wrap;
     margin: 2rem;
   }
-
-  .mainbg h2{
-    text-align: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 3rem;
-    color: #464545;
-    padding-top: 2rem;
-  }
-  #card_account{
-    width: 23rem;
-    height: 19rem;
+  #card_loan{
+    width: 19rem;
+    height: 16rem;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius:50px;
+    border-radius:10px 30px;
+    background-color: rgb(216, 215, 215);
+    transition: all .2s ease;
+  }
+  #card_loan:hover{
+    border-radius:30px 10px;
+    background-color: #13B4B3;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    transform: translate(10px);
+  }
+
+  .mainbg h2{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 2rem;
+    color: #464545;
+    padding-top: 2rem;
+  }
+  #card_account{
+    width: 23rem;
+    height: 19rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius:10px;
     background-color: rgb(216, 215, 215);
     transition: all 80ms ease-in;
   }
   #card_account:hover{
-    box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     border-radius: 5px;
     width: 25rem;
-    background-color: rgb(228, 220, 208);
+    transform: translate(8px);
+    background-color: #F8885A;
   }
   #ul_card{
     gap: .5rem;
@@ -68,7 +88,7 @@
     font-size: 2.5rem;
   }
   #wallet_img, #loan_img{
-    width: 8rem;
+    width: 5rem;
   }
   p{
     font-size: 1.3rem;
@@ -111,6 +131,9 @@ background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
     background-color: #0CC2BD;
     transition: all .2s ease-in-out;
   }
+  #arrow{
+    width: 10rem;
+  }
   #signout_btn:hover{
     background-color: #f86c34;
     cursor: pointer;
@@ -129,8 +152,8 @@ background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
     width: 10rem;
     height: 3rem;
     border: none;
-    border-radius: 30px;
-    background-color: #0CC2BD;
+    border-radius: 5px;
+    background-color: #a2a2a2;
     transition: all .2s ease-in-out;
   }
   #create_btn i{

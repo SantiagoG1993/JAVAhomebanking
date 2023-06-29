@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main_create_cards{
+    background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
+background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
+}
+
+#color_select{
+    text-align: center;
+    background-color: rgb(165, 165, 165);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:1rem ;
+    border: none;
+    border-radius: 10px;
+    width: 10rem;
+    height: 5rem;
+}
+#selec_container{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 10px;
+    background-color: rgb(243, 243, 243);
+    width: 30%;
+    height: 35rem;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#container_create{
+    justify-content: space-around;
+    display: flex;
+}
+#container_create img{
+    width: 40%;
+    height: 35rem;
+}
+#create_card_btn{
+    width: 10rem;
+    color: white;
+    background-color: rgb(246, 139, 63);
+}
+#create_card_btn:hover{
+    background-color: #a3a2a3;
+
+}

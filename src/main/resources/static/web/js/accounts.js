@@ -7,14 +7,14 @@ const app = createApp({
     return{
     clients:[],
     accountsSorted:[],
-    loans:[]
+    loans:[],
+
   }
   },
   created() {
     this.loadData()
+   
 
-  
-  
   },
   methods:{
     loadData(){
@@ -27,6 +27,8 @@ const app = createApp({
       .catch(error => {
         console.error(error);
       });
+
+    
     },
     signOut(){
       axios.post('/api/logout')
