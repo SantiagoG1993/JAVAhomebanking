@@ -1,0 +1,40 @@
+#account,#amount{
+    width: 70%;
+    text-align: center;
+    height: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#selec_container{
+    border: 3px solid rgb(246, 139, 63) ;
+    height: 44rem;
+    margin-bottom: 2rem;
+    gap: 20px;
+}
+#transfer_btn{
+    width: 10rem;
+    color: white;
+    background-color: rgb(246, 139, 63);
+    height: 2.5rem;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#transfer_btn:hover{
+    background-color: rgb(247, 111, 13);  
+}
+input[type="text"]{
+    border-radius: 15px;
+    font-size: 1rem;
+    border: none;
+    width: 70%;
+}
+#input_radio{
+    display: flex;
+    align-items: center;
+}
+input[type="radio"]{
+    width: 2rem;
+    height: 1.2rem;
+}

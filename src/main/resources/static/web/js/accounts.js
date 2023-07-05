@@ -13,6 +13,9 @@ const app = createApp({
   },
   created() {
     this.loadData()
+    axios.get("/api/loans")
+    .then(res=> {console.log(res.data)})
+    .catch(err=>console.log(err))
    
 
   },

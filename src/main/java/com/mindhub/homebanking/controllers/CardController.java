@@ -24,9 +24,8 @@ public class CardController {
     @Autowired
     CardRepository cardRepository;
     @RequestMapping(path = "/clients/current/cards", method = RequestMethod.POST)
-    public ResponseEntity<Object> createCard( Authentication authentication,
+    public ResponseEntity<?> createCard( Authentication authentication,
             @RequestParam CardType type, @RequestParam CardColor color) {
-
         String email=authentication.getName();
         Client client=clientRepository.findByEmail(email);
 
@@ -35,7 +34,6 @@ public class CardController {
         }
         if (clientHasMaxCardsOfType(client, type)){
             return new ResponseEntity<>("Ya tiene 3 tarjetas", HttpStatus.FORBIDDEN);
-
         }
         int cvvRandom = new Random().nextInt(900)+100;
         String cardHolder=client.getFirstName()+" "+client.getLastName();
@@ -49,7 +47,7 @@ public class CardController {
         Card card=new Card(LocalDate.now(),LocalDate.now().plusYears(5),cvvRandom,randomCardNumber,cardHolder,type,color);
         client.addCard(card);
         cardRepository.save(card);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>("Card created",HttpStatus.CREATED);
     }
     private boolean clientHasMaxCardsOfType(Client client, CardType type) {
         long count = client.getCards()

@@ -25,7 +25,6 @@ public class ClientController {
     @Autowired
     private AccountRepository accountRepository;
     @Autowired
-
     private PasswordEncoder passwordEncoder;
     @RequestMapping("/clients")
     public List<ClientDTO> getClients(){
@@ -44,8 +43,11 @@ public class ClientController {
     public ResponseEntity<Object> register(
             @RequestParam String firstName, @RequestParam String lastName,
             @RequestParam String email, @RequestParam String password) {
-        if (firstName.isBlank() || lastName.isBlank() || email.isBlank() || password.isBlank()) {
+        if (lastName.isBlank() || email.isBlank() || password.isBlank()) {
             return new ResponseEntity<>("Missing data", HttpStatus.FORBIDDEN);
+        }
+        if(firstName.isBlank()){
+            return new ResponseEntity<>("Missing First Name", HttpStatus.FORBIDDEN);
         }
         if (clientRepository.findByEmail(email) !=  null) {
             return new ResponseEntity<>("Name already in use", HttpStatus.FORBIDDEN);

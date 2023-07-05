@@ -1,5 +1,4 @@
 package com.mindhub.homebanking.configurations;
-
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +28,8 @@ public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter {
         auth.userDetailsService(inputName-> {
 
             Client client = clientRepository.findByEmail(inputName);
-            if(client!=null && client.getEmail().equals("admin@admin.com")){
+
+            if(client != null && client.getEmail().equals("admin@admin.com")){
                 return new User(client.getEmail(),client.getPassword(),
                         AuthorityUtils.createAuthorityList("ADMIN"));
             }

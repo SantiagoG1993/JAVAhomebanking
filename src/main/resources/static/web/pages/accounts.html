@@ -24,6 +24,8 @@
                     <li><a href="../index.html">Home</a></li>
                     <li style="text-decoration: underline;"><a href="#">Accounts</a></li>
                     <li><a href="./cards.html">Cards</a></li>
+                    <li><a href="./transfer.html">Transactions</a></li>
+                    <li><a href="loan-application.html">Loans</a></li>
                 </ul>
                 <button @click="signOut" id="signout_btn" type="submit">Sign out <i class="bi bi-box-arrow-left"></i></button>
                 <!-- Login Form -->
@@ -40,7 +42,7 @@
                     <ul id="ul_card">
                         <li id="account_number">Number:{{account.number}}</li>
                         <li id="account_date"><i class="bi bi-calendar-month"></i>{{account.creationDate}}</li>
-                        <li id="balance">${{account.balance}}</li>
+                        <li id="balance">${{account.balance.toLocaleString()}}</li>
                     </ul></a>
                 </div>              
                 <!-- Loans -->
@@ -49,7 +51,7 @@
                         <img id="loan_img" src="../style/assets/loan (2).png" alt="loan">
                         <ul id="ul_card">
                             <li id="loan_name">{{loan.name}}</li>
-                            <li id="loan_amount"> ${{loan.amount}}</li>
+                            <li id="loan_amount"> ${{loan.amount.toLocaleString()}}</li>
                             <li id="loan_payments">Payments:{{loan.payments}}</li>
                         </ul>
                     </div>
