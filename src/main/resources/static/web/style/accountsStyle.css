@@ -1,6 +1,20 @@
 #logoNav{
     height: 4rem;
   }
+  #apply_btn{
+    width: 10rem;
+    color: white;
+    background-color: rgb(246, 139, 63);
+    height: 2.5rem;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  #apply_btn:hover{
+    background-color: rgb(247, 111, 13);
+  }
 
   #main_cards {
     justify-content: center;

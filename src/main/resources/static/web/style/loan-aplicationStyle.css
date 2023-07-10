@@ -1,0 +1,36 @@
+#loan_apply_container{
+    width: 30%;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #F3F3F3;
+    border: 3px solid rgb(246, 139, 63) ;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+select{
+    text-align: center;
+    height: 3rem;
+    width: 30%;
+}
+input[type="number"]{
+    width: 50%;
+    height: 3rem;
+}
+#apply_btn{
+    width: 10rem;
+    color: white;
+    background-color: rgb(246, 139, 63);
+    height: 2.5rem;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#apply_btn:hover{
+    background-color: rgb(247, 111, 13);  
+}

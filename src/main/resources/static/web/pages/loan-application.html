@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/loginStyle.css">
     <link rel="stylesheet" href="../style/indexStyle.css">
+    <link rel="stylesheet" href="../style/loan-aplicationStyle.css">
     <link rel="stylesheet" href="../style/createCardsStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -25,40 +26,38 @@
         </header>
         <main id="main_create_cards">
             <div id="container_create">
-               <div id="selec_container">
-                <div>
-                    <h2>Loan</h2>
-                    <select v-model="selectedLoan" name="account" id="account">
-                        <option value="" disabled>Select Loan</option>
-                        <option v-for="loan of loans" :value="loan">{{loan.name}}</option>
-                    </select>
-                    <h2>Origin Account</h2>
-                    <select v-model="originAccount" name="account" id="account">
-                        <option value="" disabled>Select account</option>
-                        <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
-                    </select>
-                    <h2>Loan</h2>
-                    <select  name="account" id="account">
-                        <option value="" disabled>Select Loan</option>
-                        <option v-for="payment of selectedPayments" :value="payment">{{payment}}</option>
-                    </select>
-                </div>
-                <h2>Amount</h2>
-                <input v-model="amount" type="number" placeholder="$">
-                <input @click="apply" type="button" value="apply">
-                </div>
-              <img src="../style/assets/loanpage.png" alt="">
+                <div id="loan_apply_container">
+                        <h2>Loan</h2>
+                        <select v-model="selectedLoan" name="account" id="account">
+                            <option value="" disabled>Select Loan</option>
+                            <option v-for="loan of loans" :value="loan">{{loan.name}}</option>
+                        </select>
+                        <h2>Origin Account</h2>
+                        <select v-model="originAccount" name="account" id="account">
+                            <option value="" disabled>Select account</option>
+                            <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
+                        </select>
 
-
+                        <h2>Payments</h2>
+                        <select v-model="payments" name="payments" id="payments">
+                            <option  value="" disabled>Select Payments</option>
+                            <option v-for="payment of showPayments" :value="payment">{{payment}}</option>
+                        </select>
+                    <h2>Amount</h2>
+                    <input v-model="amount" type="number" :placeholder="showMaxAmount">
+                    <input @click="apply" type="button" value="Apply" id="apply_btn">
+                </div>
+                <img src="../style/assets/loanpage.png" alt="">
             </div>
         </main>
         <footer>
             <p> 2023 Gamarra Online Banking - All rights reserved</p>
         </footer>
     </div>
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="../js/loan-application.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/loan-application.js"></script>
 </body>
 
 </html>
