@@ -9,7 +9,7 @@ const app = createApp({
             firstName: "",
             lastName: "",
             registerPassword: "",
-            registerEmail:""
+            registerEmail:"",
         }
     },
     created() {
@@ -32,10 +32,15 @@ const app = createApp({
             errorMessage.textContent = ""
         },
         createAccount() {
-            axios.post('/api/clients', `firstName=${this.firstName}&lastName=${this.lastName}&email=${this.registerEmail}&password=${this.registerPassword}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })
+            axios.post('/api/clients', `firstName=${this.firstName}&lastName=${this.lastName}&email=${this.registerEmail}&password=${this.registerPassword}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } })            
             .then(response=>axios.post('/api/login', `email=${this.registerEmail}&password=${this.registerPassword}`, {     headers: { 'content-type': 'application/x-www-form-urlencoded' } })
             .then(response =>
-                window.location.href = '/web/pages/accounts.html'))      
+                window.location.href = '/web/pages/accounts.html'))
+            .catch(err=>{
+                const errorMessage = document.getElementById("error_message")
+                errorMessage.textContent = `${err.response.data}`
+            console.log(err);})
+                   
         },
     }
 }); app.mount("#app")

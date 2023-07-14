@@ -14,6 +14,7 @@ const app = createApp({
         this.loadData()
         
         
+        
     },
     methods:{
         loadData(){

@@ -27,7 +27,7 @@ public class TransactionController {
     TransactionService transactionService;
 
     @Transactional
-@RequestMapping(path = "/transaction",method = RequestMethod.POST)
+@PostMapping(path = "/transaction")
     public ResponseEntity<Object> createTransaction(Authentication authentication, @RequestBody TransactionRequestDTO transactionRequestDTO){
         String description = transactionRequestDTO.getDescription();
         String destinationAccount = transactionRequestDTO.getDestinationAccount();

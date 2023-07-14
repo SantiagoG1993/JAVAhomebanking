@@ -4,75 +4,150 @@
     padding: 0;
     box-sizing: border-box;
 }
-#main_cards{
+h2{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.4rem;
+    padding-top: 2rem;
+}
+.mainbg_cards{
+/*     border: 3px solid green; */
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
     background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
 background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
 }
-#cards_container{
-    display: flex;
-    margin-top: 2rem;
-    flex-wrap: wrap;
-    width: 70%;
-    gap: 1.8rem;
-    margin: 2rem;
+#main_cards{
+    border: 3px solid green;
+    background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
+background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
 }
-#card_body{
-    color: rgb(0, 0, 0);
-    width: 25rem;
-    height: 15rem;
-    border-radius: 20px;
+.debitCards_container{
+    width: 30%;
     display: flex;
     flex-direction: column;
-    transition: all .2s ease;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
+    justify-content: center;
+}
+.h1_msg, .p_msg{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(96, 96, 96);
+}
+.p_msg a{
+    color: #f77441;
+}
+.img_dont_have_cards{
+width: 20%;
+}
+.creditCards_container{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+#right_container{
+    width: 30%;
+    background-image: linear-gradient(360deg, #f1bf54 0%, #f77441 100%);
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+}
+#right_container img{
+    width: 100%;
+}
+#card_body{
+    color: rgb(38, 38, 38);
+    width: 21rem;
+    height: 12rem;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    transition: all .1s ease;
+    align-items: center;
+    gap: .7rem;
+    -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
    
 }
 #card_body:hover{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     color: rgb(0, 0, 0);
-    transform: translate(3px);
+    transform: translate(1px);
 
 }
 #card_type{
     width: 100%;
-    font-size: 2rem;
+    font-size: 1.6rem;
     display: flex;
     justify-content: end;
     padding-right: 2rem;
-    margin-top: 1rem;
+    margin-top: .7rem;
 
 }
 #card_img{
     display: flex;
     justify-content: space-between;
     width: 90%;
-    height: 3rem;
+    height: 2.7rem;
 
 }
 #card_img img{
-    height: 100%;
+    height: 80%;
 }
 #card_number{
     display: flex;
     font-family: 'Credit Card', sans-serif;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     width: 90%;
 }
 #card_name_date{
     display: flex;
     justify-content: space-between;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     width: 80%;
 }
 #card_date{
     font-family: 'Credit Card', sans-serif;
-    font-size: 1rem;
+    font-size: .7rem;
 }
 #card_cvv{
     align-self: end;
     margin-right: 2rem;
-    font-size: .6rem;
+    font-size: .5rem;
     font-family: 'Credit Card', sans-serif;   
+}
+#right_container a{
+    width: 80%;
+}
+#create_card_btn{
+background-color: #f7e9cb;
+color:rgb(107, 106, 106);
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+width: 100%;
+height: 3rem;
+margin-bottom: 2rem;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+}
+#create_card_btn:hover{
+    background-color: #f86c34;
+    color: rgb(244, 244, 244);
 }

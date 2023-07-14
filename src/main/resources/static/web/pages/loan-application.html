@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loans</title>
+    <title>Gamarra - Loans</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
@@ -15,41 +15,65 @@
     <link rel="stylesheet" href="../style/createCardsStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../style/assets/logonuevo2.png" type="image/x-icon">
 </head>
 
 <body>
     <div id="app">
         <header>
             <div id="logo_login">
-                <a href="../index.html"><img src="../style/assets/logoHomebanking.png" alt=""></a>
+                <a href="../index.html"><img src="../style/assets/logonuevo.png" alt=""></a>
             </div>
         </header>
-        <main id="main_create_cards">
+        <main id="main_create_cards" >
             <div id="container_create">
                 <div id="loan_apply_container">
-                        <h2>Loan</h2>
-                        <select v-model="selectedLoan" name="account" id="account">
-                            <option value="" disabled>Select Loan</option>
-                            <option v-for="loan of loans" :value="loan">{{loan.name}}</option>
-                        </select>
-                        <h2>Origin Account</h2>
-                        <select v-model="originAccount" name="account" id="account">
-                            <option value="" disabled>Select account</option>
-                            <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
-                        </select>
+                    <h2>Loan</h2>
+                    <select v-model="selectedLoan" name="loan" id="loan">
+                        <option value="" disabled >Select Loan</option>
+                        <option v-for="loan of loans" :value="loan">{{loan.name}}</option>
+                    </select>
+                    <h2>Origin Account</h2>
+                    <select v-model="originAccount" name="account" id="account">
+                        <option value="" disabled>Select account</option>
+                        <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
+                    </select>
 
-                        <h2>Payments</h2>
-                        <select v-model="payments" name="payments" id="payments">
-                            <option  value="" disabled>Select Payments</option>
-                            <option v-for="payment of showPayments" :value="payment">{{payment}}</option>
-                        </select>
+                    <h2>Payments</h2>
+                    <select v-model="payments" name="payments" id="payments">
+                        <option value="" disabled>Select Payments</option>
+                        <option v-for="payment of showPayments" :value="payment">{{payment}}</option>
+                    </select>
                     <h2>Amount</h2>
                     <input v-model="amount" type="number" :placeholder="showMaxAmount">
                     <input @click="apply" type="button" value="Apply" id="apply_btn">
                 </div>
-                <img src="../style/assets/loanpage.png" alt="">
+                <div id="right_text_loan">
+                    <h1>Apply for loan now!</h1>
+                  <span><img src="../style/assets/time.png" alt=""><h2>Get the loan you need in minutes.</h2></span>
+                  <p>Complete the form on the left and apply for your loan quickly and securely. Our process is simple and hassle-free. Don't waste time and access the funds you need today!</p>
+                  <span><img src="../style/assets/tailored.png" alt=""><h2>Flexibility and tailored options.</h2></span>
+                  <p>We offer a variety of loans to suit your financial needs. Whether it's a personal loan, a mortgage loan, or a debt consolidation loan, we have the perfect solution for you. Our terms are flexible, and our interest rates are competitive, providing you with peace of mind in your decision.</p>
+                  <span><img src="../style/assets/preferences.png" alt=""><h2>Exceptional customer service.</h2></span>
+                  <p>We value our customers and are committed to providing exceptional service. If you have any questions or concerns, our team will be delighted to assist you. Apply for your loan today and experience quality customer service.</p>
+                  <p>Complete the form on the left and get the funds you need in no time. Apply now!</p>
+
+                </div>
             </div>
         </main>
+        <div style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+              <defs>
+                <linearGradient id="gradient" gradientTransform="rotate(120)">
+                  <stop offset="0%" stop-color="#f1bf54" />
+                  <stop offset="100%" stop-color="#f77441" />
+                </linearGradient>
+              </defs>
+              <path d="M-0.00,49.85 C365.68,167.80 209.36,-20.16 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z" style="stroke: none; fill: url(#gradient);"></path>
+            </svg>
+          </div>
+          
+          
         <footer>
             <p> 2023 Gamarra Online Banking - All rights reserved</p>
         </footer>

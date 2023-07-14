@@ -13,52 +13,77 @@
     <link rel="stylesheet" href="./style/indexStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="./style/assets/logonuevo2.png" type="image/x-icon">
 </head>
 
 <body>
     <div id="app">
         <header>
             <div id="logo_login">
-                <img src="./style/assets/logoHomebanking.png" alt="">
+                <a href="./index.html"><img src="./style/assets/logonuevo.png" alt="logo"></a>
             </div>
         </header>
         <main id="main_login">
             <div id="container_login">
-                <img src="./style/assets/login.jpg" alt="">
+                <div id="img_login_container">
+                    <!-- <img src="./style/assets/flower_login.jpg" alt=""> -->
+                </div>
                 <!-- Form login -->
-               <div id="login_body">
-                <h1>Log in</h1>
-                    <form v-if="showForm==false" @submit.prevent="logIn">
+                <div class="login_body">
+                    <div id="login" v-if="showForm==false">
+                        <h1>Log in</h1>
+                        <form @submit.prevent="logIn">
                             <input v-model="username" type="text" name="username" id="username" placeholder="Username">
-                            <input v-model="password" type="password" name="password" id="password" placeholder="Password">
+                            <input v-model="password" type="password" name="password" id="password"
+                                placeholder="Password">
                             <label for="rememberMe">
                                 <input type="checkbox">Remember me
                             </label>
                             <input type="submit" value="Sign in">
-                            
-                    </form>
-                    <p id="error_message"></p>
-                    <p id="forgot_pwd">I forgot my password</p>
-                   <button v-if="showForm==false" @click="showRegisterForm" id="register_btn">Register</button>
-<!-- Form Register -->
-                        <form id="register_form" v-if="showForm" @submit.prevent="createAccount">
-                                <input v-model="firstName" type="text" name="firstName" id="firstName" placeholder="First Name">
-                                <input v-model="lastName" type="text" name="lastName" id="lastname" placeholder="Last Name">
-                                <input v-model="registerEmail" type="email" name="email" id="email" placeholder="Email">
-                                <input v-model="registerPassword" type="password" name="registerPassword" id="registerPassword" placeholder="Password">
-                                <input type="submit" value="Create account">
                         </form>
-
-               </div>
+                        <p id="error_message"></p>
+                        <p id="forgot_pwd">I forgot my password</p>
+                        <button v-if="showForm==false" @click="showRegisterForm" id="register_btn">Register</button>
+                    </div>
+                    <!-- Form Register -->
+                    <div id="register" v-if="showForm">
+                        <h1>Register</h1>
+                        <form @submit.prevent="createAccount" id="register_form">
+                            <input v-model="firstName" type="text" name="firstName" id="firstName"
+                                placeholder="First Name">
+                            <input v-model="lastName" type="text" name="lastName" id="lastname" placeholder="Last Name">
+                            <input v-model="registerEmail" type="email" name="email" id="email" placeholder="Email">
+                            <input v-model="registerPassword" type="password" name="registerPassword"
+                                id="registerPassword" placeholder="Password">
+                                <p id="error_message"></p>
+                            <input type="submit" value="Create account">
+                        </form>
+                        <a href="./login.html"><button id="register_btn">Back to Login</button></a>
+                    </div>
+                </div>
             </div>
         </main>
+        <div style="height: 250px; width: 100%; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+              <defs>
+                <mask id="mask" x="0" y="0" width="100%" height="100%">
+                  <path d="M-0.00,49.85 C150.00,149.60 349.20,-49.85 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z" style="stroke: none; fill: white;"></path>
+                </mask>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color: #f1bf54;"></stop>
+                  <stop offset="100%" style="stop-color: #f77441;"></stop>
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient)" mask="url(#mask)"></rect>
+            </svg>
+          </div>
         <footer>
             <p> 2023 Gamarra Online Banking - All rights reserved</p>
         </footer>
     </div>
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="./js/login.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/login.js"></script>
 </body>
 
 </html>

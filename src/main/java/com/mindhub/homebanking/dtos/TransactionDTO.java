@@ -2,8 +2,7 @@ package com.mindhub.homebanking.dtos;
 import com.mindhub.homebanking.models.Account;
 import com.mindhub.homebanking.models.Transaction;
 import com.mindhub.homebanking.models.TransactionType;
-import net.minidev.json.annotate.JsonIgnore;
-import org.hibernate.annotations.GenericGenerator;
+
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

@@ -23,21 +23,21 @@ public class AccountController {
     private ClientService clientService;
 
 
-    @RequestMapping("/accounts")
+    @GetMapping("/accounts")
     public List<AccountDTO> getAccounts() {
         return accountService.getAccountsDTO();
     }
-        @RequestMapping("/accounts/{id}")
+        @GetMapping("/accounts/{id}")
         public AccountDTO getAccount(@PathVariable Long id) {
         return new AccountDTO(accountService.findByid(id));
 
         }
-    @RequestMapping(path = "/clients/current/accounts", method = RequestMethod.POST)
+    @PostMapping(path = "/clients/current/accounts")
     public ResponseEntity<Object> createAccount(Authentication authentication) {
         String email=authentication.getName();
         Set<Account> clientAccounts=clientService.findByEmail(email).getAccounts();
         if (clientAccounts.size()>=3){
-            return new ResponseEntity<>("ya tiene 3 cuentas", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Already have three accounts", HttpStatus.FORBIDDEN);
         }
             String randomNumber;
             do{

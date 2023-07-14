@@ -1,136 +1,127 @@
-#logoNav{
-    height: 4rem;
+.mainbg{
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  background-color: #ffffff;
+opacity: 1;
+background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
+background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
+  }
+  #left_container{
+    background-image: linear-gradient(360deg, #f1bf54 0%, #f77441 100%);background-image: linear-gradient(360deg, #f1bf54 0%, #f77441 100%);
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+  }
+  #left_container a{
+    width: 80%;
   }
   #apply_btn{
-    width: 10rem;
-    color: white;
-    background-color: rgb(246, 139, 63);
-    height: 2.5rem;
-    border: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 1rem;
-    border-radius: 10px;
-    cursor: pointer;
+    background-color: #fce6b8;
+color:rgb(55, 55, 55);
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+width: 100%;
+height: 3rem;
+margin-bottom: 2rem;
+border: none;
+border-radius: 8px;
+cursor: pointer;
   }
   #apply_btn:hover{
-    background-color: rgb(247, 111, 13);
+    background-color: #f86c34;
+    color: rgb(244, 244, 244);
   }
 
   #main_cards {
-    justify-content: center;
-    width: 100%;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  #loan_cards{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 2rem;
-  }
-  #card_loan{
-    width: 19rem;
-    height: 16rem;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    border-radius:10px 30px;
-    background-color: rgb(216, 215, 215);
-    transition: all .2s ease;
+  }
+  #loan_cards{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .bi-search{
+    font-size: 1.4rem;
+  }
+  #card_account{
+    width: 29rem;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+    background-color: rgb(236, 236, 236);
+  }
+  #card_account:hover{
+    background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
+  }
+  #card_loan{
+    width: 29rem;
+    height: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+    background-color: rgb(236, 236, 236);
   }
   #card_loan:hover{
-    border-radius:30px 10px;
-    background-color: #13B4B3;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    transform: translate(10px);
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+
   }
 
   .mainbg h2{
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 2rem;
-    color: #464545;
+    font-size: 1.4rem;
     padding-top: 2rem;
   }
-  #card_account{
-    width: 23rem;
-    height: 19rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius:10px;
-    background-color: rgb(216, 215, 215);
-    transition: all 80ms ease-in;
-  }
-  #card_account:hover{
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    border-radius: 5px;
-    width: 25rem;
-    transform: translate(8px);
-    background-color: #F8885A;
-  }
+
   #ul_card{
-    gap: .5rem;
+    width: 75%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   #account_number, #loan_name{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   #account_date,#loan_payments{
     color: black;
+    font-size: .9rem;
   }
   #account_date i{
     color: rgb(212, 68, 68);
-    font-size: 1.3rem;
-    margin-right: .3rem;
+    font-size: .8rem;
+  }
+  #logo_nav2{
+    width: 10rem;
   }
   #balance, #loan_amount{
     color: black;
-    font-size: 2.5rem;
-  }
-  #wallet_img, #loan_img{
-    width: 5rem;
+    font-size: 1.7rem;
   }
   p{
-    font-size: 1.3rem;
-  }
-  .mainbg{
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-opacity: 1;
-background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
-background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
-  
+    font-size: 1rem;
   }
   /* account */
-  .account_main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .bi-arrow-left-circle-fill{
-    padding-left: 30px;
-    font-size: 4rem;
-    color: #414346;
-    transition: all .5s ease-in-out;
-  }
-  .bi-arrow-left-circle-fill:hover{
-    color: #F8885A;
-  }
   #signout_btn{
     color: white;
     display: flex;
@@ -140,35 +131,34 @@ background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
     width: 9rem;
     height: 3rem;
     margin-right: 2rem;
-    border-radius: 15px;
+    border-radius: 8px;
     border: none;
-    background-color: #0CC2BD;
-    transition: all .2s ease-in-out;
+    font-weight: 900;
+    background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
   }
-  #arrow{
-    width: 10rem;
-  }
+
   #signout_btn:hover{
-    background-color: #f86c34;
+    background-image: linear-gradient(360deg, #f1bf54 0%, #f77441 100%);
     cursor: pointer;
-    border-radius: 2px;
   }
   #signout_btn i{
     font-size: 1.2rem;
   }
   #create_btn{
-    margin-left: 2rem;
-    display: flex;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 10rem;
-    height: 3rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #a2a2a2;
-    transition: all .2s ease-in-out;
+    background-color: #f7e9cb;
+color:rgb(55, 55, 55);
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+width: 80%;
+height: 3rem;
+margin-bottom: 2rem;
+border: none;
+border-radius: 8px;
+cursor: pointer;
   }
   #create_btn i{
     font-size: 1.2rem;
@@ -176,7 +166,7 @@ background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
   #create_btn:hover{
     background-color: #f86c34;
     cursor: pointer;
-    border-radius: 2px;
+    color: rgb(244, 244, 244);
   }
 
   @media (max-width: 600px){

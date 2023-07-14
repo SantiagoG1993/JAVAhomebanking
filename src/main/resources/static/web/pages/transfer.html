@@ -5,41 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transactions</title>
+    <title>Gamarra - Transactions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style/loginStyle.css">
+    <link rel="stylesheet" href="../style/loan-aplicationStyle.css">
     <link rel="stylesheet" href="../style/indexStyle.css">
     <link rel="stylesheet" href="../style/createCardsStyle.css">
     <link rel="stylesheet" href="../style/transferStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../style/assets/logonuevo2.png" type="image/x-icon">
 </head>
 
 <body>
     <div id="app">
         <header>
             <div id="logo_login">
-                <a href="../index.html"><img src="../style/assets/logoHomebanking.png" alt=""></a>
+                <a href="../index.html"><img src="../style/assets/logonuevo.png" alt=""></a>
             </div>
         </header>
         <main id="main_transfer">
             <div id="container_create">
                 <div id="selec_container">
-                    <div id="input_radio" >
+                    <div id="input_radio">
                         <p>Destination type</p>
-                        <input type="radio" name="destiantion" v-model="destinationRadio" id="own" value="own" >Own
-                        <input type="radio" name="destiantion" v-model="destinationRadio" id="other" value="other" checked>Other
+                        <input type="radio" name="destiantion" v-model="destinationRadio" id="own" value="own">Own
+                        <input type="radio" name="destiantion" v-model="destinationRadio" id="other" value="other"
+                            checked>Other
                     </div>
-                        <h2>Origin Account</h2> <p>Avalaible amount: ${{montoDisponible.toLocaleString()}}</p>
-                        <select v-model="originAccount" name="account" id="account">
-                            <option value="" disabled>Select account</option>
-                            <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
-                        </select>
+                    <h2>Origin Account</h2>
+                    <p>Avalaible amount: ${{montoDisponible.toLocaleString()}}</p>
+                    <select v-model="originAccount" name="account" id="account">
+                        <option value="" disabled>Select account</option>
+                        <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
+                    </select>
                     <h2>Amount</h2>
                     <input v-model="amount" type="number" placeholder="$" id="amount">
-                    <h2>Destination account</h2> 
+                    <h2>Destination account</h2>
                     <select v-if="destinationRadio=='own'" v-model="destinationAccount" name="account" id="account">
                         <option value="" disabled>Select account</option>
                         <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
@@ -50,13 +54,34 @@
                     <input @click="transfer" type="button" value="Transfer" id="transfer_btn">
                     <!--                 <a href="./cards.html"><i class="bi bi-arrow-left-circle-fill"></i></a>  -->
                 </div>
-                    <img src="../style/assets/transfer.png" alt="">
+                <div id="right_text_loan">
+                    <h1>Make transfers</h1>
+                    <span><img src="../style/assets/security.png" alt=""><h2>Fast and Secure Transfers.</h2></span>
+                    <p> Make your transfers easy and secure with our intuitive form. Send money to your loved ones or pay your bills in just a few clicks!</p>
+                    <span><img src="../style/assets/flexible.png" alt=""><h2>Flexible Transfer Options.</h2></span>
+                    <p>Our transfer form allows you to choose from different types of transfers, whether it's between your own accounts or to third-party accounts. Customize your transfers according to your needs.</p>
+                    <span><img src="../style/assets/history.png" alt=""><h2>History and Tracking.</h2></span>
+                    <p>Keep a record of your completed transfers and track your financial history. Access your transfer history anytime and stay informed about your transactions</p>
+                    <!-- <img src="../style/assets/transfer.png" alt=""> -->
+                </div>    
             </div>
-            </div>
-        </main>
-        <footer>
-            <p> 2023 Gamarra Online Banking - All rights reserved</p>
-        </footer>
+    </div>
+    </main>
+    <div style="height: 150px; overflow: hidden;">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <defs>
+                <linearGradient id="gradient" gradientTransform="rotate(120)">
+                    <stop offset="0%" stop-color="#f1bf54" />
+                    <stop offset="100%" stop-color="#f77441" />
+                </linearGradient>
+            </defs>
+            <path d="M-0.00,49.85 C365.68,167.80 209.36,-20.16 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z"
+                style="stroke: none; fill: url(#gradient);"></path>
+        </svg>
+    </div>
+    <footer>
+        <p> 2023 Gamarra Online Banking - All rights reserved</p>
+    </footer>
     </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

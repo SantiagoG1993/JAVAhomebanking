@@ -5,13 +5,19 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #main_login{
-    background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
-background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
+background-color: #f6f6f6;
+}
+#img_login_container{
+    background-image: url(../style/assets/flower_login.jpg);
+    width: 40%;
+    mask-image: linear-gradient(to right, transparent, black);
+    -webkit-mask-image: -webkit-linear-gradient(left, transparent, black);
+    border-radius: 15px;
+    width: 40%;
+    filter: blur(2px);
 }
 
-
 #logo_login{
-/*     border: 3px solid red; */
     height: 15vh;
 }
 #logo_login img{
@@ -28,16 +34,33 @@ h1{
     flex-direction: row-reverse;
 }
 #container_login img{
-    width: 55%;
+    mask-image: linear-gradient(to right, transparent, black);
+    -webkit-mask-image: -webkit-linear-gradient(left, transparent, black);
+    border-radius: 15px;
+    width: 40%;
+    filter: blur(2px);
 }
-#login_body{
+.login_body{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 35%;
     height: 100%;
-/*     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+}
+#login{
+    width: 100%;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+#register{
+    width: 100%;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 form{
     display: flex;
@@ -47,23 +70,31 @@ form{
     height: 60%;
     width: 80%;
 }
+#register_form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 80%;
+    width: 80%;
+}
 input[type="text"], [type="password"], [type="email"]{
     padding: 1.5rem;
     border: none;
     border-bottom: 3px solid  #F8885A;
+    background-color: transparent;
     font-size: 1.2rem;
 }
 input[type="submit"]{
     border: none;
     font-size: 1.2rem;
-    background-color: #d6dcdc;
+    background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
     border-radius: 10px;
-    color: rgb(109, 100, 100);
+    color: rgb(255, 255, 255);
     transition: all .3s ease-in-out;
     height: 2.9rem;
 }
 input[type="submit"]:hover{
-    background-color: #F8885A;
+    background-image: linear-gradient(360deg, #f1bf54 0%, #f77441 100%);
     color: white;
     cursor: pointer;
     border-radius: 3px;
@@ -98,13 +129,7 @@ form input {
     font-size:1.3rem;
 }
 
-#register_form{
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    height: 80%;
-    width: 80%;
-}
+
 #register_btn{
     width: 10rem;
     height: 2rem;

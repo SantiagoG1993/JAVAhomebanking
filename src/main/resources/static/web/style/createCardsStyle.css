@@ -19,7 +19,7 @@ background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
     background-color: rgb(243, 243, 243);
     width: 30%;
     height: 35rem;
-    gap: 2rem;
+    gap: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,3 +48,35 @@ background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
     background-color: rgb(247, 111, 13);
 
 }
+#right_container_create_cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 60%;
+}
+#right_container_create_cards h2{
+    font-size: 2.2rem;
+    color: rgb(64, 63, 63);
+}
+#right_container_create_cards p{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.2rem;
+    color: rgb(96, 96, 96);
+}
+#img_create_card{
+    width: 35%!important;
+    height: 25%!important;
+}
+#cards_img{
+    width: 100%;
+    height: 10.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+#cards_img img{
+    width: 30%!important;
+    height: 100%!important;
+}
+

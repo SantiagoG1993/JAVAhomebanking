@@ -12,36 +12,51 @@ footer{
 main{
   min-height: 75vh;
 }
-nav {
-  height: 15vh;
-  width: 100%;
-    background: #F8885A;
-background: linear-gradient(278deg, #F8885A 3%, #0CC3BF 41%, #414D5B 100%);
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  ul {
+#index_body{
+  background-color: #f1f1f1;
+}
+#navbar{
+  background-color: #f9f9f9;
+  height: 13vh;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+#navbar ul {
+    width: 40rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
     list-style-type: none;
   }
+  #logo_nav{
+    width: 10rem;
+   }
   li {
-    color: white;
+    color: grey;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: inline;
-    margin-right: 15px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding-left: 2rem;
   }
+  a:hover{
+    color: #fa7a48;
+  }
   a {
-  
     text-decoration: none!important;
-    color: white!important;
+    color: rgb(62, 62, 62);
   }
-  a:hover {
-    color: #fff;
-  }
-  #navbar{
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
+/*   a:hover {
+    color: white;
+    background-color: #f56830d7;
+    border-radius: 30px;
+    padding: 15px;
+  } */
+  #imgmain{
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+    filter: blur(3.5px)
   }
   #online_banking_btn{
     display: flex;
@@ -49,16 +64,16 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
     margin-right: 2rem;
     border: none;
     font-size: .8rem;
+    font-weight: bold;
     color: white;
-    background-color: #0CC3BF;
-    border-radius: 30px;
+    /* background-color: #f77441; */
+    background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
+    border-radius: 8px;
     padding: .9rem;
-    transition: all .6s ease-in-out;
   }
   #online_banking_btn:hover{
-    background-color: #f86a31;
+    background-image: linear-gradient(360deg, #f1bf54 0%, #f77441 100%);
     cursor: pointer;
-    border-radius: 5px;
   }
   
   .bi-phone{
@@ -72,9 +87,10 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
   }
 /* footer */  
   footer {
-    background-color: #f2f2f2;
+    background-color: white;
 display: flex;
 justify-content: center;
+color: black;
 align-items: center;
     width: 100%;
     font-family: 'Merriweather', serif;
@@ -94,23 +110,7 @@ align-items: center;
     width: 29rem;
     height: 4rem;
   }
-  .box1{
-    display: flex;
-    align-items: center;
-border-radius: 30px;
-    width: 70%;
-    height:25rem;
-    background-image: url(./assets/bankkunden.jpg);
-    background-size: cover ;
-    background-repeat: no-repeat;
-  }
-  .box1 h1{
-    color: white;
-      text-shadow: rgb(64, 58, 73) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    font-size:4rem;
-    margin-left: 4rem;
-    width: 20rem;
-  }
+
   .box2{
     display: flex;
     justify-content: center;
@@ -130,39 +130,48 @@ border-radius: 30px;
     height: 10rem;
   }
   .promo_btn{
+    -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #eeeeee;
+    background-color: #c0bfbf;
     justify-content: center;
-    width: 227px;
-    color: rgb(33, 33, 33);
-    height: 130px;
-    border-radius: 15px;
-    transition: all .3s ease;
+    width: 170px;
+    color: rgb(108, 108, 108);
+    height: 100px;
+    border-radius: 8px;
     cursor: pointer;
   }
   .promo_btn:hover{
-    background-color: #F8885A;
+    color: rgb(237, 237, 237);
+    background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
+    -webkit-box-shadow: 2px 6px 14px -1px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 6px 14px -1px rgba(0,0,0,0.75);
+box-shadow: 2px 6px 14px -1px rgba(0,0,0,0.75);
     transform: translate(4px);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
   }
   .promo_btn i{
     font-size: 2.3rem;
   }
+  
 /* cards main */
 .box3{
-  margin-top: 4rem;
+  background-color: #f2f2f2;
+  margin-top: 2rem;
   display: flex;
   padding: 2rem;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 3rem;
   align-items: center;
-  width: 90%;
+  width: 100%;
   border-radius: 8px;
- /*  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
-background: linear-gradient(278deg, #ff9166 , #13dbd8);
+/*   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px; */
+/* border: 3px solid black; */
 }
  #card{
   font-family: Arial, Helvetica, sans-serif;
@@ -171,62 +180,46 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 text-align: center;
-background: rgb(137,223,245);
-background: linear-gradient(126deg, rgba(137,223,245,1) 30%, rgba(88,178,214,1) 65%); 
-    border-radius: 10px  40px 10px 40px;
-    height: 25rem;
-    width: 20rem;
+background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
+border-radius: 8px;
+    height: 30rem;
+    width: 23rem;
     color: white;
+    border-radius: 8px;
+    -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+  }
+  #card p{
+    width: 80%;
   }
   #card img{
     width: 100%;
     height: 15rem;
     object-fit: cover;
-    border-radius: 10px  40px 0px 0px;
+    border-radius: 8px;
 
   }
-
+.card_title{
+  color: rgb(61, 59, 59);
+  font-size: 1.6rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
   #card:hover{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     transition: all 0.2s ease-in;
   }
-  #card button{
-    width: 10rem;
-    height: 2rem;
+ .show_more_btn{
+    width: 8rem;
+    height: 1.8rem;
     margin: 1.5rem;
-    border-radius: 10px;
-    background-color: #d4c8ea;
-    border: none;
-  }
-  #card button:hover{
-    color: white;
-    background-color: #be73b1;
-    cursor: pointer;
-  }
-  /* download app */
-  #download_app_box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-    width: 100%;
-    margin-top: 1rem;
-    border-radius: 10px;
-  }
-  #download_app_box img{
-    width: 80%;
-  }
-  #download_btn{
-    background-color: #F8885A;
-    color: white;
-    border: none;
-    padding: 1rem;
     border-radius: 8px;
+    border: none;
+    color: rgb(84, 84, 84);
+   background-color: #e4e0d8;
   }
-  #download_btn:hover{
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    cursor: pointer;
-  }
+
+
  /* icons */
  #icons{
   display: flex;
@@ -240,13 +233,14 @@ background: linear-gradient(126deg, rgba(137,223,245,1) 30%, rgba(88,178,214,1) 
 }
 
  #icons i{
-  color: rgb(43, 43, 43);
-  background-color: #c6c5c5 ;
+  color: rgb(53, 53, 53);
+  background-color: #bcbcbc ;
   border-radius: 8%;
   padding: 1rem;
 }
 #icons i:hover{
-  background-color: #F8885A;
+  color: white;
+  background-color: #fa7a48;
   cursor: pointer;
 }
   #icons div{

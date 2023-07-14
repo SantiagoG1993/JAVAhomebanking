@@ -26,28 +26,35 @@ public class ClientController {
     private PasswordEncoder passwordEncoder;
 
 
-    @RequestMapping("/clients")
+    @GetMapping("/clients")
     public List<ClientDTO> getClients(){
     return clientService.getClientsDTO();
         }
 
-    @RequestMapping("/clients/{id}")
+    @GetMapping("/clients/{id}")
     public ClientDTO getClient(@PathVariable Long id){
         return clientService.getClient(id);
     }
 
-    @RequestMapping(path = "/clients", method = RequestMethod.POST)
+    @PostMapping(path = "/clients")
     public ResponseEntity<Object> register(
             @RequestParam String firstName, @RequestParam String lastName,
             @RequestParam String email, @RequestParam String password) {
-        if (lastName.isBlank() || email.isBlank() || password.isBlank()) {
-            return new ResponseEntity<>("Missing data", HttpStatus.FORBIDDEN);
+        if (password.isBlank()) {
+            return new ResponseEntity<>("Missing password.", HttpStatus.FORBIDDEN);
         }
         if(firstName.isBlank()){
-            return new ResponseEntity<>("Missing First Name", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("Missing First Name.", HttpStatus.FORBIDDEN);
         }
+        if(email.isBlank()){
+            return new ResponseEntity<>("Missing e-mail.", HttpStatus.FORBIDDEN);
+        }
+        if(lastName.isBlank()){
+            return new ResponseEntity<>("Missing last name.", HttpStatus.FORBIDDEN);
+        }
+
         if (clientService.findByEmail(email) !=  null) {
-            return new ResponseEntity<>("Name already in use", HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>("E-mail already in use", HttpStatus.FORBIDDEN);
         }
        Client client=new Client(firstName, lastName, email, passwordEncoder.encode(password));
         clientService.saveClient(client);
@@ -65,7 +72,7 @@ public class ClientController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping("clients/current")
+    @GetMapping("clients/current")
     public ClientDTO getClient(Authentication authentication){
         Client client=clientService.findByEmail(authentication.getName());
          ClientDTO clientDTO=new ClientDTO(client);

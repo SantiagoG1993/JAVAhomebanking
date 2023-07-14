@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tus cuentas</title>
+    <title>Gamarra - Cards</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style/cardsStyle.css">
     <link rel="stylesheet" href="../style/accountsStyle.css">
     <link rel="stylesheet" href="../style/indexStyle.css">
+    <link rel="stylesheet" href="../style/cardsStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../style/assets/logonuevo2.png" type="image/x-icon">
 </head>
 
 <body>
@@ -22,27 +23,35 @@
             <!-- Nav Bar -->
             <nav id="navbar">
                 <ul>
+                    <li><a href="../index.html"><img src="../style/assets/logonuevo.png" alt="" id="logo_nav2"></a></li>
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="./accounts.html">Accounts</a></li>
                     <li style="text-decoration: underline;"><a href="#">Cards</a></li>
                     <li><a href="./transfer.html">Transactions</a></li>
                 </ul>
-                <button @click="signOut" id="signout_btn" type="submit">Sign out <i class="bi bi-box-arrow-left"></i></button>
+                <button @click="signOut" id="signout_btn" type="submit">Sign out <i
+                        class="bi bi-box-arrow-left"></i></button>
             </nav>
         </header>
-        <main class="mainbg">
-            <a href="../index.html"><i class="bi bi-arrow-left-circle-fill"></i></a>
-            <a href="./create-cards.html"><button v-if="cards.length<6" id="create_btn">Create<i class="bi bi-plus-square"></i></button></a>
-            <div id="cards_container">
+        <main class="mainbg_cards">
+            <div id="right_container">
+                <h2>These are your cards:</h2>
+                <img src="../style/assets/Credit Card_Isometric.png" alt="">
+                <a href="./create-cards.html"><button v-if="cards.length<6" id="create_card_btn">Create new card<i
+                            class="bi bi-plus-square"></i></button></a>
+            </div>
 
+            <div v-if="debitCards.length>0" class="debitCards_container">
                 <!-- Cards -->
-                <div v-for="card of cards">
+                <h2>Debit cards</h2>
+                <div v-for="card of debitCards">
                     <!-- Gold -->
-                    <div v-if="card.color=='GOLD'" style="background-color:rgb(204, 176, 84);" id="card_body">
+                    <div v-if="card.color=='GOLD'"
+                        style="background-image: linear-gradient(135deg, #fdfcfb 0%, #ccbf6e 100%);" id="card_body">
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
-                            <img src="../style/assets/logoBank.png" alt="">
+                            <img src="../style/assets/logonuevo2.png" alt="">
                         </div>
                         <p id="card_number">{{card.number}}</p>
                         <div id="card_name_date">
@@ -53,11 +62,12 @@
                         <p id="card_cvv">{{card.cvv}}</p>
                     </div>
                     <!-- Silver -->
-                    <div v-if="card.color=='SILVER'" style="background-color:rgb(143, 143, 142);" id="card_body">
+                    <div v-if="card.color=='SILVER'"
+                        style="background-image: linear-gradient(120deg, #fdfbfb 0%, #d1d2d3 100%);" id="card_body">
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
-                            <img src="../style/assets/logoBank.png" alt="">
+                            <img src="../style/assets/logonuevo2.png" alt="">
                         </div>
                         <p id="card_number">{{card.number}}</p>
                         <div id="card_name_date">
@@ -68,11 +78,12 @@
                         <p id="card_cvv">{{card.cvv}}</p>
                     </div>
                     <!-- Titanium -->
-                    <div v-if="card.color=='TITANIUM'" style="background-color:rgb(61, 61, 60);color: rgb(252, 253, 253);" id="card_body">
+                    <div v-if="card.color=='TITANIUM'"
+                        style="background-color:rgb(61, 61, 60);color: rgb(252, 253, 253);" id="card_body">
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
-                            <img src="../style/assets/logoBank.png" alt="">
+                            <img src="../style/assets/logonuevo2.png" alt="">
                         </div>
                         <p id="card_number">{{card.number}}</p>
                         <div id="card_name_date">
@@ -83,11 +94,85 @@
                         <p id="card_cvv">{{card.cvv}}</p>
                     </div>
                 </div>
-            <div>
+                
+            </div>
+            <div v-else class="debitCards_container">
+                <img src="../style/assets/cards.png" alt="" class="img_dont_have_cards"><h1 class="h1_msg">You don't have debit cards</h1>
+            <p class="p_msg">Click <a href="./create-cards.html">here</a> to create a new card.</p></div>
+            
+            <div v-if="creditCards.length>0" class="creditCards_container">
+                <!-- Cards -->
+                <h2>Credit cards</h2>
+                <div v-for="card of creditCards">
+                    <!-- Gold -->
+                    <div v-if="card.color=='GOLD'"
+                        style="background-image: linear-gradient(135deg, #fdfcfb 0%, #ccbf6e 100%);" id="card_body">
+                        <p id="card_type">{{card.type}} CARD</p>
+                        <div id="card_img">
+                            <img src="../style/assets/chip_card.png" alt="">
+                            <img src="../style/assets/logonuevo2.png" alt="">
+                        </div>
+                        <p id="card_number">{{card.number}}</p>
+                        <div id="card_name_date">
+                            <p>{{card.cardholder}}</p>
+                            <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
+                            <p>{{card.color}}</p>
+                        </div>
+                        <p id="card_cvv">{{card.cvv}}</p>
+                    </div>
 
+                    <!-- Silver -->
+                    <div v-if="card.color=='SILVER'"
+                        style="background-image: linear-gradient(120deg, #fdfbfb 0%, #d1d2d3 100%);" id="card_body">
+                        <p id="card_type">{{card.type}} CARD</p>
+                        <div id="card_img">
+                            <img src="../style/assets/chip_card.png" alt="">
+                            <img src="../style/assets/logonuevo2.png" alt="">
+                        </div>
+                        <p id="card_number">{{card.number}}</p>
+                        <div id="card_name_date">
+                            <p>{{card.cardholder}}</p>
+                            <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
+                            <p>{{card.color}}</p>
+                        </div>
+                        <p id="card_cvv">{{card.cvv}}</p>
+                    </div>
+
+                    <!-- Titanium -->
+                    <div v-if="card.color=='TITANIUM'"
+                        style="background-color:rgb(61, 61, 60);color: rgb(252, 253, 253);" id="card_body">
+                        <p id="card_type">{{card.type}} CARD</p>
+                        <div id="card_img">
+                            <img src="../style/assets/chip_card.png" alt="">
+                            <img src="../style/assets/logonuevo2.png" alt="">
+                        </div>
+                        <p id="card_number">{{card.number}}</p>
+                        <div id="card_name_date">
+                            <p>{{card.cardholder}}</p>
+                            <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
+                            <p>{{card.color}}</p>
+                        </div>
+                        <p id="card_cvv">{{card.cvv}}</p>
+                    </div>
 
                 </div>
+            </div>
+                    <div v-else class="creditCards_container">
+                        <img src="../style/assets/cards.png" alt="" class="img_dont_have_cards"><h1  class="h1_msg">You don't have credit cards</h1>
+                    <p class="p_msg">Click <a href="./create-cards.html">here</a> to create a new card.</p></div>
         </main>
+        <div style="height: 250px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <defs>
+                    <linearGradient id="gradient" gradientTransform="rotate(120)">
+                        <stop offset="0%" stop-color="#f1bf54" />
+                        <stop offset="100%" stop-color="#f77441" />
+                    </linearGradient>
+                </defs>
+                <path d="M-0.00,49.85 C365.68,167.80 209.36,-20.16 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z"
+                    style="stroke: none; fill: url(#gradient);"></path>
+            </svg>
+        </div>
         <footer>
             <p> 2023 Gamarra Online Banking - All rights reserved</p>
         </footer>
