@@ -22,7 +22,7 @@ const app = createApp({
                 .then((confirmed) => {
                     if (confirmed) {
                         axios.post('/api/clients/current/cards?type=' + this.cardType + '&color=' + this.cardColor)
-                            .then(res => swal(res.data, "", "success"))
+                            .then(res => {swal(res.data, "", "success"),window.location.href="/web/pages/cards.html"})
                             .catch(err => swal(err.response.data, "", "error"));
                     }
                 });

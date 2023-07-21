@@ -26,7 +26,7 @@ public class AccountController {
     private ClientService clientService;
 
     @GetMapping(path="/accounts/current")
-    public List<AccountDTO> getAccountsDTO(Authentication authentication, @RequestParam LocalDate initDate ,@RequestParam LocalDate finishDate){
+    public List<AccountDTO> getAccountsDTO(Authentication authentication){
       Client client= clientService.findByEmail(authentication.getName());
       List<Account> accounts=client.getAccounts().stream().filter(account ->!account.isDeleted()).collect(Collectors.toList());
       List<AccountDTO> accountsNonDeleted=accounts.stream().map(account -> new AccountDTO(account)) .collect(Collectors.toList());
