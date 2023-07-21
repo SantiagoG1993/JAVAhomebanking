@@ -13,7 +13,7 @@ span img{
     width: 180px!important;
 }
 #loan_apply_container{
-    width: 30%;
+    width: 30rem;
     height: 40rem;
     display: flex;
     flex-direction: column;
@@ -74,4 +74,27 @@ input[type="number"]{
 }
 #apply_btn:hover{
     background-color: rgb(247, 111, 13);  
+}
+@media (max-width:1000px){
+    #loan_apply_container{
+        width: 80%;
+    }
+}
+@media (max-width:566px){
+    #loan_apply_container{
+        border: none;
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        background-image: none;
+    }
+    select{
+        height: 5rem;
+        width: 80%;
+    }
+    #apply_btn{
+        width: 70%;
+        height: 5rem;
+    }
 }

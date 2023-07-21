@@ -21,6 +21,29 @@ box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
   #left_container a{
     width: 80%;
   }
+  #account_type_container{
+    color: white;
+    width: 80%;
+    height: 3rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    margin-bottom: 1rem;
+gap: 1rem;
+  }
+  #account_type_container button{
+   background-color: transparent;
+    border: none;
+    color: white;
+font-size: 3rem;
+cursor: pointer;
+  }
+  #account_type_container button:hover{
+    color: orange;
+  }
+
   #apply_btn{
     background-color: #fce6b8;
 color:rgb(55, 55, 55);
@@ -41,7 +64,9 @@ cursor: pointer;
     background-color: #f86c34;
     color: rgb(244, 244, 244);
   }
-
+#check_account{
+  transform: scale(1.6);
+}
   #main_cards {
     display: flex;
     flex-direction: column;
@@ -56,34 +81,70 @@ cursor: pointer;
     justify-content: center;
     align-items: center;
   }
+  #account_type{
+    color: rgb(205, 29, 29);
+  }
   .bi-search{
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
   #card_account{
-    width: 29rem;
-    height: 8rem;
+    width: 20rem;
+    height: 17rem;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     border-radius:10px;
+    gap: .8rem;
     background-color: rgb(236, 236, 236);
+    -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+  }
+  #pay_btn{
+    background-color: white;
+    width: 100%;
+    height: 1.3rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
   }
   #card_account:hover{
     background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
   }
   #card_loan{
     width: 29rem;
-    height: 8rem;
+    height: 13rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius:10px;
     background-color: rgb(236, 236, 236);
+    -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
   }
   #card_loan:hover{
     background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 
   }
+#delete_btn{
+  background: linear-gradient(107.2deg, rgb(150, 15, 15) 10.6%, rgb(247, 0, 0) 91.1%);
+color:rgb(255, 255, 255);
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 1rem;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+width: 80%;
+height: 3rem;
+margin-bottom: 2rem;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+}
+
 
   .mainbg h2{
     text-align: center;
@@ -93,10 +154,12 @@ cursor: pointer;
   }
 
   #ul_card{
-    width: 75%;
+    width: 100%;
     display: flex;
+    gap: .5rem;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
   }
   #account_number, #loan_name{
     color: black;
@@ -136,6 +199,17 @@ cursor: pointer;
     font-weight: 900;
     background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
   }
+  #sign_out2{
+    display: none;
+  }
+  #btn_container{
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 
   #signout_btn:hover{
     background-image: linear-gradient(360deg, #f1bf54 0%, #f77441 100%);
@@ -169,9 +243,140 @@ cursor: pointer;
     color: rgb(244, 244, 244);
   }
 
-  @media (max-width: 600px){
+  @media (max-width: 1388px){
+    #card_loan{
+      width: 23rem;
+    }
+    #balance, #loan_amount{
+      color: black;
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width: 1182px){
+    .mainbg{
+      flex-direction: column;
+      }
+      #left_container{
+        flex-direction: row;
+        align-items: center;
+        height: 20rem;
+      }
+      #btn_container{
+        height: 60%;
+      }
+      #left_container img{
+        height: 100%;
+      }
+      #main_cards {
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+      #loan_cards{
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+  }
+  @media (max-width: 892px){
+    #left_container img{
+      display: none;
+    } 
+    #sign_out2{
+      display: block;
+      background-color: rgb(242, 233, 217);
+      border-radius: 10px;
+      width: 40%;
+    border: none;
+    color: rgb(255, 94, 0);
+    cursor: pointer;
+      padding: 1rem;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-weight: 900;
+    }
+    #btn_container{
+      height: 100%;
+    }
+    #signout_btn{
+      display: none;
+    }
+  }
+  @media (max-width: 740px){
+    #main_cards {
+      flex-wrap: wrap;
+    }
+    #loan_cards {
+      flex-wrap: wrap;
+    }
+    #card_account{
+      width: 100%;
+      height: 14rem;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem;
+      background-image: linear-gradient(120deg, #f1bf54 0%, #f77441 100%);
+    }
+    #balance, #loan_amount{
+      color: black;
+      font-size: 1.7rem;
+    }
+    #card_loan{
+      width: 100%;
+      height: 14rem;
+      margin: 1rem;
+      gap: 1rem;
+      background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    }
+    #ul_card{
+      width: 80%;
+      display: flex;
+      gap: .6rem;
+      align-items: center;
+      justify-content: center; 
+    }
+    header{
+      min-height: 25vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    nav ul{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    nav ul img{
+      display: none;
+    }
+  }
+  @media (max-width: 500px){
     #loan_cards{
-    flex-direction: column;
+      flex-direction: row;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    #card_loan{
+      width: 90%;
+      height: 10rem;
+    }
+    #your_accounts{
+      display: none;
+    }
+    #balance, #loan_amount{
+      color: black;
+      font-size: 1.2rem;
+    }
+    #card_loan,#card_account{
+      height: 12rem;
     }
 
   }
+

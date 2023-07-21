@@ -19,8 +19,8 @@ public class CardDTO {
     private String cardholder;
     private CardType type;
     private CardColor color;
-
     private Client client;
+    private boolean deleted;
 
     public CardDTO() {
     }
@@ -34,6 +34,11 @@ public class CardDTO {
         cardholder = card.getCardholder();
         type = card.getType();
         color = card.getColor();
+        deleted=card.isDeleted();
+    }
+
+    public boolean isDeleted() {
+        return deleted;
     }
 
     public Long getId() {

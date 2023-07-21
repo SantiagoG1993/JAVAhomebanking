@@ -23,15 +23,37 @@ public class Account {
     @OneToMany(mappedBy = "account", fetch=FetchType.EAGER)
     Set<Transaction> transaction=new HashSet<>();
 
+    private AccountType accountType;
+    private boolean deleted;
+
 
 
     public Account(){}
 
-    public Account(String number, LocalDate creationDate, Double balance){
-        this.number=number;
-        this.balance=balance;
-        this.creationDate=creationDate;
+    public Account(String number, double balance, LocalDate creationDate, AccountType accountType, boolean deleted) {
+        this.number = number;
+        this.balance = balance;
+        this.creationDate = creationDate;
+        this.accountType = accountType;
+        this.deleted = deleted;
     }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
+    }
+
     public void addTransaction(Transaction transaction){
         transaction.setAccount(this);
         this.transaction.add(transaction);

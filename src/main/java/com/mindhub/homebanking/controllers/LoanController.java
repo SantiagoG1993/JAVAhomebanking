@@ -72,10 +72,13 @@ public class LoanController {
             return new ResponseEntity<>("This account does not belong to this client.", HttpStatus.FORBIDDEN);
     }
     else{
-        ClientLoan clientloan1 = new ClientLoan(amount+amount*0.2, payments);
+        double currentAmountCredit=accountDestination.getBalance()+loanApplicationDTO.getAmount();
+        double interestRate= requestedLoan.getPercentage()/100;
+
+        ClientLoan clientloan1 = new ClientLoan(amount, payments,payments,amount+amount*interestRate);
         client.addClientLoan(clientloan1);
         requestedLoan.addClientLoan(clientloan1);
-        Transaction transactionLoan=new Transaction(TransactionType.CREDIT, LocalDateTime.now(),name+" "+"Loan approved",amount);
+        Transaction transactionLoan=new Transaction(TransactionType.CREDIT, LocalDateTime.now(),name+" "+"Loan approved",amount,false,currentAmountCredit);
 
         transactionService.saveTransaction(transactionLoan);
         clientLoanService.saveClientLoan(clientloan1);
@@ -85,4 +88,31 @@ public class LoanController {
 
         return new ResponseEntity<>("Loan request created",HttpStatus.CREATED);
     }
-}}
+}
+
+    @PostMapping(value="/loan/create")
+    public ResponseEntity<Object> createLoanAdmin(  @RequestBody LoanDTO loanDTO){
+        if(loanService.findByName(loanDTO.getName())!=null){
+            return new ResponseEntity("Loan already exists",HttpStatus.FORBIDDEN);
+        }
+        if(loanDTO.getName().isBlank()){
+            return new ResponseEntity<>("Please enter a name",HttpStatus.FORBIDDEN);
+        }
+        if(loanDTO.getPayments()==null){
+            return new ResponseEntity<>("Please enter payments",HttpStatus.FORBIDDEN);
+        }
+        if(loanDTO.getMaxAmount()==0){
+            return new ResponseEntity<>("Please enter the max amount",HttpStatus.FORBIDDEN);
+        }
+        if(loanDTO.getPercentage()==0){
+            return new ResponseEntity<>("Please enter an interest rate",HttpStatus.FORBIDDEN);
+        }
+        else{
+            List<Integer> payments = loanDTO.getPayments();
+            Loan loanCreated=new Loan(loanDTO.getName(), loanDTO.getMaxAmount(),payments, loanDTO.getPercentage());
+            loanService.saveLoan(loanCreated);
+            return new ResponseEntity<>("Loan created",HttpStatus.OK);
+        }
+
+    }
+}

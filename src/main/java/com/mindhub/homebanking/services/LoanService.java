@@ -8,6 +8,7 @@ import java.util.List;
 public interface LoanService {
     List<LoanDTO> getLoans();
     Loan findByName(String name);
+    Loan saveLoan(Loan loan);
 
 
 }

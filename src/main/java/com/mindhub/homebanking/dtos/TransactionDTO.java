@@ -14,14 +14,29 @@ public class TransactionDTO{
         private String description;
         private Account account;
         private double amount;
+        private boolean deleted;
+        private double currentAmount;
 
+    public TransactionDTO() {
+    }
 
     public TransactionDTO(Transaction transaction) {
         this.type = transaction.getType();
         this.creationDate = transaction.getCreationDate();
         this.description = transaction.getDescription();
         this.amount=transaction.getAmount();
+        this.deleted=transaction.isDeleted();
+        this.currentAmount= transaction.getCurrentAmount();
     }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public double getCurrentAmount() {
+        return currentAmount;
+    }
+
     public double getAmount() {
         return amount;
     }

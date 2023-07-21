@@ -37,17 +37,25 @@
             <div id="right_container">
                 <h2>These are your cards:</h2>
                 <img src="../style/assets/Credit Card_Isometric.png" alt="">
-                <a href="./create-cards.html"><button v-if="cards.length<6" id="create_card_btn">Create new card<i
+                <div id="btn_container">
+                <a href="./create-cards.html"><button v-if="debitCards.length<3 && selectedCard.length==[]" id="create_card_btn">Create new card<i
                             class="bi bi-plus-square"></i></button></a>
+                            <button v-if="selectedCard.length>0" id="delete_btn" @click="deleteCard">Delete Card</button>
+                            <button @click="signOut"  id="sign_out2" type="submit">Sign out <i
+                                class="bi bi-box-arrow-left"></i></button>
+                </div>                
             </div>
 
             <div v-if="debitCards.length>0" class="debitCards_container">
                 <!-- Cards -->
-                <h2>Debit cards</h2>
+                <h2 class="card_title">Debit cards</h2>
                 <div v-for="card of debitCards">
                     <!-- Gold -->
                     <div v-if="card.color=='GOLD'"
                         style="background-image: linear-gradient(135deg, #fdfcfb 0%, #ccbf6e 100%);" id="card_body">
+                        <div id="checkbox_container">
+                            <input v-model="selectedCard" type="checkbox" name="" id="" :value="card" >
+                        </div>
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
@@ -59,11 +67,17 @@
                             <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
                             <p>{{card.color}}</p>
                         </div>
-                        <p id="card_cvv">{{card.cvv}}</p>
+                        <div id="cvv_expired_container">
+                            <p v-if="isCardExpired(card.truDate)" id="expired_msg">Expired card!</p>
+                            <p id="card_cvv">cvv:{{card.cvv}}</p>
+                        </div>
                     </div>
                     <!-- Silver -->
                     <div v-if="card.color=='SILVER'"
                         style="background-image: linear-gradient(120deg, #fdfbfb 0%, #d1d2d3 100%);" id="card_body">
+                        <div id="checkbox_container">
+                            <input v-model="selectedCard" type="checkbox" name="" id="" :value="card" >
+                        </div>
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
@@ -75,11 +89,18 @@
                             <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
                             <p>{{card.color}}</p>
                         </div>
-                        <p id="card_cvv">{{card.cvv}}</p>
+                        <div id="cvv_expired_container">
+                            <p v-if="isCardExpired(card.truDate)" id="expired_msg">Expired card!</p>
+                            <p id="card_cvv">cvv:{{card.cvv}}</p>
+                        </div>
                     </div>
                     <!-- Titanium -->
                     <div v-if="card.color=='TITANIUM'"
                         style="background-color:rgb(61, 61, 60);color: rgb(252, 253, 253);" id="card_body">
+                        <div id="checkbox_container">
+                            <input v-model="selectedCard" type="checkbox" name="" id="" :value="card" >
+                            <button @click="show">show</button>
+                        </div>
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
@@ -91,7 +112,10 @@
                             <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
                             <p>{{card.color}}</p>
                         </div>
-                        <p id="card_cvv">{{card.cvv}}</p>
+                        <div id="cvv_expired_container">
+                            <p v-if="isCardExpired(card.truDate)" id="expired_msg">Expired card!</p>
+                            <p id="card_cvv">cvv:{{card.cvv}}</p>
+                        </div>
                     </div>
                 </div>
                 
@@ -102,11 +126,14 @@
             
             <div v-if="creditCards.length>0" class="creditCards_container">
                 <!-- Cards -->
-                <h2>Credit cards</h2>
+                <h2 class="card_title">Credit cards</h2>
                 <div v-for="card of creditCards">
                     <!-- Gold -->
                     <div v-if="card.color=='GOLD'"
                         style="background-image: linear-gradient(135deg, #fdfcfb 0%, #ccbf6e 100%);" id="card_body">
+                        <div id="checkbox_container">
+                            <input v-model="selectedCard" type="checkbox" name="" id="" :value="card" >
+                        </div>
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
@@ -118,12 +145,18 @@
                             <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
                             <p>{{card.color}}</p>
                         </div>
-                        <p id="card_cvv">{{card.cvv}}</p>
+                        <div id="cvv_expired_container">
+                            <p v-if="isCardExpired(card.truDate)" id="expired_msg">Expired card!</p>
+                            <p id="card_cvv">cvv:{{card.cvv}}</p>
+                        </div>
                     </div>
 
                     <!-- Silver -->
                     <div v-if="card.color=='SILVER'"
                         style="background-image: linear-gradient(120deg, #fdfbfb 0%, #d1d2d3 100%);" id="card_body">
+                        <div id="checkbox_container">
+                            <input v-model="selectedCard" type="checkbox" name="" id="" :value="card" >
+                        </div>
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
@@ -135,12 +168,18 @@
                             <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
                             <p>{{card.color}}</p>
                         </div>
-                        <p id="card_cvv">{{card.cvv}}</p>
+                        <div id="cvv_expired_container">
+                            <p v-if="isCardExpired(card.truDate)" id="expired_msg">Expired card!</p>
+                            <p id="card_cvv">cvv:{{card.cvv}}</p>
+                        </div>
                     </div>
 
                     <!-- Titanium -->
                     <div v-if="card.color=='TITANIUM'"
                         style="background-color:rgb(61, 61, 60);color: rgb(252, 253, 253);" id="card_body">
+                        <div id="checkbox_container">
+                            <input v-model="selectedCard" type="checkbox" name="" id="" :value="card" >
+                        </div>
                         <p id="card_type">{{card.type}} CARD</p>
                         <div id="card_img">
                             <img src="../style/assets/chip_card.png" alt="">
@@ -152,7 +191,10 @@
                             <p id="card_date">{{card.truDate.slice(0 -5)}}</p>
                             <p>{{card.color}}</p>
                         </div>
-                        <p id="card_cvv">{{card.cvv}}</p>
+                        <div id="cvv_expired_container">
+                            <p v-if="isCardExpired(card.truDate)" id="expired_msg">Expired card!</p>
+                            <p id="card_cvv">cvv:{{card.cvv}}</p>
+                        </div>
                     </div>
 
                 </div>

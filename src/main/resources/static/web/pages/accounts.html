@@ -37,38 +37,61 @@
             <div id="left_container">
                 <h2 id="your_accounts">Your accounts: {{clients.firstName}} {{clients.lastName}}</h2>
                 <img src="../style/assets/Bank note_Isometric.png" alt="">
-                <button v-if="accountsSorted.length<3" @click="createAccounts" id="create_btn">Create new account<i
-                        class="bi bi-plus-square"></i></button>
-                <a href="./loan-application.html"><button id="apply_btn">Apply for loan</button></a>
-            </div>    
-                <!-- Accounts -->
-            <div id="main_cards">
-                   <div id="card_account" v-for="account of accountsSorted">
-                        <ul id="ul_card">
-                            <a :href="'./account.html?id='+account.id"><i class="bi bi-search"></i></a>
-                            <li id="account_number">{{account.number}}</li>
-                            <li id="account_date"><i class="bi bi-calendar-month"></i>{{account.creationDate}}</li>
-                            <li id="balance">${{account.balance.toLocaleString()}}</li>
-                        </ul>
+                <div id="btn_container">
+                    <div v-if="showAccount" id="account_type_container">
+                        <input value="SAVING" v-model="accountType" type="radio" name="accountype" id="saving">Saving
+                        <input value="CHECKING" v-model="accountType" type="radio" name="accountype"
+                            id="current">Checking
+                        <button @click="createAccounts"><i class="bi bi-check-lg"></i></button>
                     </div>
-                    <!-- Loans -->
+                    <a href="./loan_pay.html"><button id="apply_btn">Loan pay</button></a>
+                    <button v-if="accounts.length<3" id="create_btn" @click="showAccountType">Create new account<i
+                            class="bi bi-plus-square"></i></button>
+                    <a href="./loan-application.html"><button v-if="selectedAccount.length==[]" id="apply_btn">Apply for
+                            loan</button></a>
+                    <button v-if="selectedAccount.length>0" id="delete_btn" @click="deleteAccount">Delete
+                        account</button>
+                    <button @click="signOut" id="sign_out2" type="submit">Sign out <i
+                            class="bi bi-box-arrow-left"></i></button>
                 </div>
-                <div v-if="loans.length>0" id="loan_cards">
-                    <div id="card_loan" v-for="loan of loans">
-                        <ul id="ul_card">
-                            <li id="loan_name">{{loan.name}}</li>
-                            <li id="loan_amount"> ${{loan.amount.toLocaleString()}}</li>
-                            <li id="loan_payments">Payments:{{loan.payments}}</li>
-                        </ul>
-                    </div>
-                <div>
             </div>
+            <!-- Accounts -->
+            <div id="main_cards">
+                <div id="card_account" v-for="account of accounts">
+                    <input v-model="selectedAccount" type="checkbox" name="" id="check_account" :value="account">
+                    <ul id="ul_card">
+                        <a :href="'./account.html?id='+account.id"><i class="bi bi-search"></i></a>
+                        <li id="account_number">{{account.number}}</li>
+                        <li id="account_date"><i class="bi bi-calendar-month"></i>{{account.creationDate}}</li>
+                        <li id="balance">${{account.balance.toLocaleString()}}</li>
+                        <li id="account_type">{{account.accountType}} ACCOUNT</li>
+                    </ul>
+                </div>
+                <!-- Loans -->
+            </div>
+            <div v-if="loans.length>0" id="loan_cards">
+                <div id="card_loan" v-for="loan of loans">
+                    <ul id="ul_card">
+                        <li id="loan_name">{{loan.name}}</li>
+                        <li id="loan_amount"> ${{loan.amount.toLocaleString()}}</li>
+                        <li id="loan_amount"> Current amount: ${{loan.currentAmount.toLocaleString()}}</li>
+                        <li id="loan_payments">Payments:{{loan.payments}}</li>
+                        <li id="loan_payments">Payments remaining:{{loan.currentPayments}}</li>
+                    </ul>
+                </div>
+            <div>
+                </div>
         </main>
-        <div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-0.00,49.85 C2.82,28.04 305.30,176.66 500.00,49.85 L503.95,156.98 L-0.00,149.60 Z" style="stroke: none; fill: rgb(151, 151, 151);"></path></svg></div>
+        <div style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none"
+                style="height: 100%; width: 100%;">
+                <path d="M-0.00,49.85 C2.82,28.04 305.30,176.66 500.00,49.85 L503.95,156.98 L-0.00,149.60 Z"
+                    style="stroke: none; fill: rgb(151, 151, 151);"></path>
+            </svg></div>
         <footer>
             <p> 2023 Gamarra Online Banking - All rights reserved</p>
         </footer>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../js/accounts.js"></script>

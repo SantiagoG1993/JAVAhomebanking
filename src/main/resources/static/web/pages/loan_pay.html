@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamarra - Loans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/loginStyle.css">
+    <link rel="stylesheet" href="../style/indexStyle.css">
+    <link rel="stylesheet" href="../style/loan-aplicationStyle.css">
+    <link rel="stylesheet" href="../style/createCardsStyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../style/assets/logonuevo2.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div id="logo_login">
+                <a href="../index.html"><img src="../style/assets/logonuevo.png" alt=""></a>
+            </div>
+        </header>
+        <main id="main_create_cards" >
+            <div id="container_create">
+                <h1>Loan Payment</h1>
+                <div id="loan_apply_container">
+                    <h2>Loan</h2>
+                    <select v-model="selectedLoan" name="loan" id="loan">
+                        <option value="" disabled >Select Loan</option>
+                        <option v-for="loan of loans" :value="loan">{{loan.name}}</option>
+                    </select>  
+                   <h2>Origin Account</h2>
+                    <select v-model="originAccount" name="account" id="account">
+                        <option value="" disabled>Select account</option>
+                        <option v-for="account of accounts" :value="account.number">{{account.number}}</option>
+                    </select>
+                   <button @click="Pay" id="apply_btn">Pay</button>
+                </div>
+            </div>
+        </main>
+        <div style="height: 150px; overflow: hidden;">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+              <defs>
+                <linearGradient id="gradient" gradientTransform="rotate(120)">
+                  <stop offset="0%" stop-color="#f1bf54" />
+                  <stop offset="100%" stop-color="#f77441" />
+                </linearGradient>
+              </defs>
+              <path d="M-0.00,49.85 C365.68,167.80 209.36,-20.16 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z" style="stroke: none; fill: url(#gradient);"></path>
+            </svg>
+          </div>
+          
+          
+        <footer>
+            <p> 2023 Gamarra Online Banking - All rights reserved</p>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../js/loan_pay.js"></script>
+</body>
+
+</html>

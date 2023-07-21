@@ -19,14 +19,34 @@ public class Transaction {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="account_id")
     private Account account;
+    private boolean deleted;
+    private double currentAmount;
 
     public Transaction(){}
 
-    public Transaction(TransactionType type, LocalDateTime creationDate, String description, double amount) {
+    public Transaction(TransactionType type, LocalDateTime creationDate, String description, double amount,boolean deleted,double currentAmount) {
         this.type = type;
         this.creationDate = creationDate;
         this.description = description;
         this.amount = amount;
+        this.deleted=deleted;
+        this.currentAmount=currentAmount;
+    }
+
+    public double getCurrentAmount() {
+        return currentAmount;
+    }
+
+    public void setCurrentAmount(double currentAmount) {
+        this.currentAmount = currentAmount;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     public double getAmount() {

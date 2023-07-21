@@ -1,6 +1,7 @@
 package com.mindhub.homebanking.controllers;
 import com.mindhub.homebanking.dtos.ClientDTO;
 import com.mindhub.homebanking.models.Account;
+import com.mindhub.homebanking.models.AccountType;
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.services.AccountService;
 import com.mindhub.homebanking.services.ClientService;
@@ -17,14 +18,12 @@ import java.util.Random;
 @RestController
 @RequestMapping("/api")
 public class ClientController {
-
     @Autowired
     private ClientService clientService;
     @Autowired
     private AccountService accountService;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
 
     @GetMapping("/clients")
     public List<ClientDTO> getClients(){
@@ -65,7 +64,7 @@ public class ClientController {
             randomNumber="VIN-"+random.nextInt(90000000);
         }while(accountService.findByNumber(randomNumber)!=null);
 
-        Account account=new Account(randomNumber, LocalDate.now(),0.0);
+        Account account=new Account(randomNumber,0.0,LocalDate.now(),AccountType.SAVING,false);
         client.addAccount(account);
         accountService.saveAccount(account);
 

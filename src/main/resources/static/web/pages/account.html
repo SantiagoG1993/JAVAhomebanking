@@ -37,6 +37,11 @@
             </nav>
         </header>
         <main class="account_main">
+            <div id="date_filter_container">
+                <input type="date" name="Initial Date" id="initDate" v-model="initDate">
+                <input type="date" name="Finish Date" id="finishDate" v-model="finishDate">
+                <button @click="show">show</button>
+            </div>
             <div v-if="transactionSorted.length!=0" id="table_container">
                 <h2>Transactions</h2>
                 <table >
@@ -47,6 +52,7 @@
                             <th>Time</th>
                             <th>Description</th>
                             <th>Amount</th>
+                            <th>Current amount</th>
                         </tr>
                     </thead>
                     <tbody v-for="transaction of transactionSorted">
@@ -60,6 +66,7 @@
                             <td>{{transaction.creationDate.slice(11 ,-7)}}</td>
                             <td>{{transaction.description}}</td>
                             <td>$ {{transaction.amount.toLocaleString(2)}}</td>
+                            <td>${{transaction.currentAmount.toLocaleString(2)}}</td>
                         </tr>
                     </tbody>
                 </table>

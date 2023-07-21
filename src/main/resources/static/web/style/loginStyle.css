@@ -153,5 +153,43 @@ form input {
 color: #fa733d;
 }
 @media (max-width: 1000px){
+    #img_login_container{
+       display: none;
+    }
+    #container_login{
+        display: flex;
+        justify-content: center;
+    }
+    .login_body{
+        justify-content: center;
+        width: 60%;
+    }
+    #register_btn{
+        width: 80%;
+        height: 2.5rem;
+        color: white;
+    }
+}
+@media (max-width: 530px){
+    .login_body{
+        justify-content: center;
+        width: 100%;
+    }
+    #main_login{
+        background-color: transparent;
+        }
+        input[type="submit"]{
+            font-size: 1.6rem;
+            height: 4rem;
+        }
+        #register_btn{
+            width: 80%;
+            height: 2.5rem;
+            color: white;
+        }
+        #wave_login{
+            display: none;
+        }
+        
 
 }

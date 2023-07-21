@@ -34,7 +34,7 @@ app=createApp({
         loadData(){
             axios.get("http://localhost:8080/api/clients/current")
             .then(res=>{
-                this.accounts=res.data.accounts
+                this.accounts=res.data.accounts.filter(accounts=>accounts.deleted==false)
             
             })
             .catch(err=> console.log(err))

@@ -8,6 +8,8 @@ import com.mindhub.homebanking.services.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Set;
+
 @Service
 public class CardServiceImplements implements CardService {
     @Autowired
@@ -28,4 +30,11 @@ public class CardServiceImplements implements CardService {
     public void saveCard(Card card) {
     cardRepository.save(card);
     }
+
+    @Override
+    public Set<Card> findByClient(Client client) {
+        return cardRepository.findByClient(client);
+    }
+
+
 }

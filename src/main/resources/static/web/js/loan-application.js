@@ -18,8 +18,8 @@ const app = createApp({
     created() {
         axios.get("/api/clients/current")
             .then(res => {
-                this.accounts = res.data.accounts;
-
+                this.accounts = res.data.accounts.filter(account=>account.deleted==false);
+                console.log(this.accounts);
             })
             .catch(err => console.log(err))
         axios.get("/api/loans")
@@ -60,7 +60,8 @@ const app = createApp({
                             amount: this.amount,
                             payments: this.payments,
                             name: this.selectedLoan.name
-                        }
+                        },
+                        window.location.href="/web/pages/accounts.html"
                         )
                         .then(res => swal(res.data, "", "success"))
                         .catch(err => swal(err.response.data, "", "error"));

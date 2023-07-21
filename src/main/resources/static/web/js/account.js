@@ -6,6 +6,8 @@ const app = createApp({
 
     return{
     transactionSorted:[],
+    initDate:"",
+    finishDate:""
 
         }
   },
@@ -13,17 +15,18 @@ const app = createApp({
     this.loadData()
     const params=new URLSearchParams(location.search)
     accountId=params.get('id')
-
+    
 
   },
   methods:{
     loadData(){
-      axios.get("http://localhost:8080/api/accounts/")
+      axios.get("http://localhost:8080/api/accounts/current")
       .then(response => {
       const accounts=response.data
       const accountById = accounts.find(accounts => accounts.id == accountId)
       const transactions = accountById.transaction
-      this.transactionSorted=transactions.sort((a,b)=> a.amount - b.amount)
+      this.transactionSorted=transactions.sort((a,b)=> a.creationDate - b.creationDate)
+      console.log(this.transactionSorted);
   
       })
       .catch(error => {
@@ -34,6 +37,9 @@ const app = createApp({
       axios.post('/api/logout')
       .then(response => window.location.href="/web/login.html")
     },
+    show(){
+      console.log(this.initDate, this.finishDate);
+    }
   }
 
 });app.mount('#app')

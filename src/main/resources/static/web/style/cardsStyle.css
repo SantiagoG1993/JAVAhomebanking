@@ -11,7 +11,6 @@ h2{
     padding-top: 2rem;
 }
 .mainbg_cards{
-/*     border: 3px solid green; */
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-around;
@@ -19,7 +18,6 @@ h2{
 background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
 }
 #main_cards{
-    border: 3px solid green;
     background: radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #ffffff 20%, #ffffff 80%, transparent 80%, transparent) 85px 85px, linear-gradient(#f6f6f6 6.800000000000001px, transparent 6.800000000000001px) 0 -3.4000000000000004px, linear-gradient(90deg, #f6f6f6 6.800000000000001px, #ffffff 6.800000000000001px) -3.4000000000000004px 0;
 background-size: 170px 170px, 170px 170px, 85px 85px, 85px 85px;
 }
@@ -74,7 +72,7 @@ box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
     flex-direction: column;
     transition: all .1s ease;
     align-items: center;
-    gap: .7rem;
+    gap: .4rem;
     -webkit-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
@@ -92,7 +90,6 @@ box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
     display: flex;
     justify-content: end;
     padding-right: 2rem;
-    margin-top: .7rem;
 
 }
 #card_img{
@@ -122,11 +119,37 @@ box-shadow: 3px 3px 20px -7px rgba(0,0,0,0.75);
     font-family: 'Credit Card', sans-serif;
     font-size: .7rem;
 }
+#cvv_expired_container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    height: 2rem;
+    justify-content: space-between;
+}
+#expired_msg{
+    color: red;
+}
+#delete_btn{
+    background: linear-gradient(107.2deg, rgb(150, 15, 15) 10.6%, rgb(247, 0, 0) 91.1%);
+  color:rgb(255, 255, 255);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 80%;
+  height: 3rem;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  }
 #card_cvv{
-    align-self: end;
     margin-right: 2rem;
     font-size: .5rem;
     font-family: 'Credit Card', sans-serif;   
+
 }
 #right_container a{
     width: 80%;
@@ -150,4 +173,54 @@ cursor: pointer;
 #create_card_btn:hover{
     background-color: #f86c34;
     color: rgb(244, 244, 244);
+}
+#checkbox_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width:1100px){
+    .mainbg_cards{
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        .img_dont_have_cards{
+            width: 6%;
+        }
+        #right_container{
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            height: 20rem;
+        }
+        #right_container img{
+            height: 100%;
+            width:35%;
+        }
+        #create_card_btn{
+            width: 100%;
+            height: 3rem;
+            margin-bottom: 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            }
+            .debitCards_container,.creditCards_container{
+                width: 80%;
+                flex-direction: row;      
+                gap: 1rem;
+                margin: 1rem;
+            }
+            .card_title{
+                display: none;
+            }
+            
+
+}
+@media (max-width:800px){
+    #right_container img{
+        display: none;
+    }
 }

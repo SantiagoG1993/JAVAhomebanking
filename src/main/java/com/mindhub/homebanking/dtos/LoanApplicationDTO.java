@@ -8,6 +8,9 @@ public class LoanApplicationDTO {
     private Integer payments;
     private String name;
 
+    public LoanApplicationDTO() {
+    }
+
     public String getDestinationAccount() {
         return destinationAccount;
     }

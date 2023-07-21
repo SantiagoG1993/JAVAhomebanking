@@ -6,6 +6,9 @@ import com.mindhub.homebanking.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Service
 public class TransactionServiceImplements implements TransactionService {
     @Autowired
@@ -14,5 +17,10 @@ public class TransactionServiceImplements implements TransactionService {
     @Override
     public Transaction saveTransaction(Transaction transaction) {
         return transactionRepository.save(transaction);
+    }
+
+    @Override
+    public List<Transaction> findBetween(LocalDate date1, LocalDate date2) {
+        return transactionRepository.findBetween(date1,date2);
     }
 }

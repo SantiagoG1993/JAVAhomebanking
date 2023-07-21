@@ -1,5 +1,6 @@
 package com.mindhub.homebanking.dtos;
 import com.mindhub.homebanking.models.Account;
+import com.mindhub.homebanking.models.AccountType;
 import com.mindhub.homebanking.models.Client;
 import com.mindhub.homebanking.models.Transaction;
 
@@ -14,6 +15,11 @@ public class AccountDTO {
     private LocalDate creationDate;
     private Client client;
     private Set<TransactionDTO> transaction;
+    private AccountType accountType;
+    private boolean deleted;
+
+    public AccountDTO() {
+    }
 
     public AccountDTO(Account account) {
         this.id = account.getIdAccount();
@@ -24,7 +30,18 @@ public class AccountDTO {
                 .stream()
                 .map(transaction -> new TransactionDTO(transaction))
                 .collect(Collectors.toSet());
+        this.accountType=account.getAccountType();
+        this.deleted=account.isDeleted();
     }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
     public long getId() {
         return id;
     }

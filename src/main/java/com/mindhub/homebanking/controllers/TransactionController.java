@@ -1,4 +1,5 @@
 package com.mindhub.homebanking.controllers;
+import com.mindhub.homebanking.dtos.TransactionDTO;
 import com.mindhub.homebanking.dtos.TransactionRequestDTO;
 import com.mindhub.homebanking.models.Account;
 import com.mindhub.homebanking.models.Client;
@@ -12,9 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 
 @RequestMapping("/api")
 @RestController
@@ -25,6 +28,13 @@ public class TransactionController {
     ClientService clientService;
     @Autowired
     TransactionService transactionService;
+
+//    @GetMapping(path = "/api/transaction")
+//    List<TransactionDTO> getTransactionDTOs(Authentication authentication, @RequestParam LocalDate initDate , @RequestParam LocalDate finishDate){
+//        Client client=clientService.findByEmail(authentication.getName());
+//        Set<Account> accounts=client.getAccounts();
+//    } NO LLEGUE CON EL TIEMPO XD!
+
 
     @Transactional
 @PostMapping(path = "/transaction")
@@ -68,8 +78,11 @@ public class TransactionController {
     }
 
     else{
-        Transaction transactionDebit=new Transaction(TransactionType.DEBIT, LocalDateTime.now(),description+originAccount,-amount);
-        Transaction transactionCredit=new Transaction(TransactionType.CREDIT, LocalDateTime.now(),description+destinationAccount,amount);
+        double currentAmountDebit=accountOrigin.getBalance()-transactionRequestDTO.getAmount();
+        double currentAmountCredit=accountDestination.getBalance()+transactionRequestDTO.getAmount();
+
+        Transaction transactionDebit=new Transaction(TransactionType.DEBIT, LocalDateTime.now(),description+originAccount,-amount,false,currentAmountDebit);
+        Transaction transactionCredit=new Transaction(TransactionType.CREDIT, LocalDateTime.now(),description+destinationAccount,amount,false,currentAmountCredit);
 
         accountOrigin.addTransaction(transactionDebit);
         accountDestination.addTransaction(transactionCredit);

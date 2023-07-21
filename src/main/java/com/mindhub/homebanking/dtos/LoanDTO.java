@@ -1,12 +1,5 @@
 package com.mindhub.homebanking.dtos;
-
 import com.mindhub.homebanking.models.Loan;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.ElementCollection;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.List;
 
 public class LoanDTO {
@@ -14,8 +7,9 @@ public class LoanDTO {
     private Long id;
     private String name;
     private double maxAmount;
-
     private List<Integer> payments;
+    private double percentage;
+
 
     public LoanDTO() {
     }
@@ -25,11 +19,18 @@ public class LoanDTO {
         name = loan.getName();
         maxAmount = loan.getMaxAmount();
         payments = loan.getPayments();
+        percentage=loan.getPercentage();
+    }
+
+    public double getPercentage() {
+        return percentage;
     }
 
     public Long getId() {
         return id;
     }
+
+
 
     public String getName() {
         return name;
