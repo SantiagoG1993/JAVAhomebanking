@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface TransactionService {
     Transaction saveTransaction(Transaction transaction);
-    List<Transaction> findBetween(LocalDate date1, LocalDate date2);
+
 }

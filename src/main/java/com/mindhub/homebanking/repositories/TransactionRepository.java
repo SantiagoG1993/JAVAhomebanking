@@ -9,5 +9,5 @@ import java.util.List;
 @RepositoryRestResource
 
 public interface TransactionRepository extends JpaRepository<Transaction,Long> {
-    List<Transaction> findBetween(LocalDate date1, LocalDate date2);
+
 }

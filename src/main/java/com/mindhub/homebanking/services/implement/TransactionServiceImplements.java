@@ -19,8 +19,5 @@ public class TransactionServiceImplements implements TransactionService {
         return transactionRepository.save(transaction);
     }
 
-    @Override
-    public List<Transaction> findBetween(LocalDate date1, LocalDate date2) {
-        return transactionRepository.findBetween(date1,date2);
-    }
+
 }
